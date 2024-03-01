@@ -1,0 +1,42 @@
+.page-header{
+    display: flex;
+    flex-direction: row;
+
+    margin-top: min(8vh, 60px);
+    margin-left: min(6vh, 65px);
+    margin-right: min(6vh, 65px);
+}
+
+.page-header .genre-list{
+    display: flex;
+}
+
+.page-header .genre-list .genre-content{
+    width: min(20vh, 150px);
+    height: min(10vh, 30px);
+    
+    margin: 0;
+    padding: 0;
+    
+    background-color: white;
+}
+
+.page-header .search-box{
+    width: 100%;
+    margin: 0 0 0 60px;
+}
+
+.page-header .search-box input{
+    height: min(10vh, 28px); 
+    width: min(10vh, 300px);
+
+    padding: 0 0 0 20px;
+
+    background-color: white;
+}
+
+#all-genre-content{
+    color: white;
+    background-color: #022B3A;
+    border-color: #022B3A;
+}
