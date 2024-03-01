@@ -10,7 +10,7 @@
     height: 80px;
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 ul {
@@ -21,11 +21,11 @@ ul {
     justify-content: center;
     align-items: stretch;
 }
-  
+
 li{
     display: flex;
 }
-  
+
 li a {
     display: flex;
     justify-content: center;
