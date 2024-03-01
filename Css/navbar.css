@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.navbar{
+    background-color: #022B3A;
+    color: #E1E5F2;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+  
+li{
+    display: flex;
+}
+  
+li a {
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    align-items: center;
+}
+
+.logo{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.link{
+    font-size: 17px;
+}
+
+.coin{
+    width: 35px;
+    margin: 0 7px;
+}
+
+.us{
+    width: 35px;
+}
