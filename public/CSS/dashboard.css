@@ -1,0 +1,82 @@
+.page-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: min(8vh, 60px);
+    margin-left: min(6vh, 65px);
+    margin-right: min(6vh, 65px);
+}
+
+.page-header .genre-list{
+    display: flex;
+}
+
+.page-header .genre-list .genre-content{
+    width: min(20vh, 150px);
+    height: min(10vh, 30px);
+
+    margin: 0;
+    padding: 0;
+
+    background-color: white;
+}
+
+.page-header .search-box{
+    width: 100%;
+}
+
+.page-header .search-box input{
+    height: min(10vh, 28px);
+    width: min(60vh, 300px);
+
+    padding: 0 0 0 20px;
+
+    background-color: white;
+}
+
+.page-content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    margin-top: min(8vh, 60px);
+    margin-left: min(6vh, 60px);
+    margin-right: min(6vh, 60px);
+}
+
+.page-content .book-card{
+    width: 340px;
+    height: 240px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+
+    border: none;
+
+    background-color: #022B3A;
+}
+
+.page-content .book-card .book-picture{
+    width: 135px;
+    height: 200px;
+
+}
+
+.page-content .book-card .book-content{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+    color: white;
+}
+
+#all-genre-content{
+    color: white;
+    background-color: #022B3A;
+    border-color: #022B3A;
+}
