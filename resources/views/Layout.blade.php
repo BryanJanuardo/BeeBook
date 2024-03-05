@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('CSS/navbar.css')}}">
+    <link rel="stylesheet" href="{{asset('Css/footer.css')}}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
     </style>
@@ -27,5 +28,25 @@
 
     </nav>
     @yield('PageContent')
+
+    <footer class="footer">
+        <div class="footer-top">
+            <p>&copy;2024-2024 BeeBook and any associated logos are trademarks, service marks, and/or registered trademarks of Team 11.</p>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-col">
+                <h2>Contact Us</h2>
+                <p>Jl. Raya Kb. Jeruk No.27, RT.1/RW.9, Kemanggisan, Kec.</p>
+                <p>Palmerah, Kota Jakarta Barat, Daerah Khusus </p>
+                <p>Ibukota Jakarta 11530</p>
+            </div>
+            <div class="footer-col">
+                <br>
+                <p>customersupport@beebook.co / 02139393923</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
