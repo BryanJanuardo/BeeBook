@@ -19,3 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard');
+
+Route::get('/About', function () {
+    return view('AboutUs');
+});
+
