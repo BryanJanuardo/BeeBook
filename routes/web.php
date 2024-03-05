@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,4 @@ Route::get('/', function () {
 
 Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 
-Route::get('/About', function () {
-    return view('AboutUs');
-});
-
+Route::get('/AboutUs', [AboutController::class,'index'])->name('About Us');
