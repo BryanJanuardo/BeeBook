@@ -1,0 +1,44 @@
+
+
+.heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 57px;
+    font-weight: bold;
+    text-align: center;
+    text-align: middle;
+    text-align: auto;
+    color: #022B3A;
+  }
+
+  .paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    text-align: top;
+    text-align: fixed;
+    text-align: justify;
+    color: #022B3A;
+  }
+
+
+
+.container {
+    background-color: #E1E5F2;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 1182%;
+    max-width: 904px;
+}
+
+
+.container {
+    background-color: #CED3E1;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+
+
