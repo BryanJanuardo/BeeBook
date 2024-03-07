@@ -1,8 +1,13 @@
-
+.page-content{
+    margin: 0 20%;
+    background-color: #E1E5F2;
+    padding: 4%;
+    margin-top: 24px;
+}
 
 .heading {
     font-family: 'Inter', sans-serif;
-    font-size: 57px;
+    font-size: 28px;
     font-weight: bold;
     text-align: center;
     text-align: middle;
@@ -12,7 +17,7 @@
 
   .paragraph {
     font-family: 'Inter', sans-serif;
-    font-size: 26px;
+    font-size: 20px;
     text-align: top;
     text-align: fixed;
     text-align: justify;
