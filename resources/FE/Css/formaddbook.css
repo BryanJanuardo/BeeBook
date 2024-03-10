@@ -50,13 +50,18 @@
     justify-content: space-between;
 }
 
-.page .page-content .book-form .book-content .input .genre button{
+.page .page-content .book-form .book-content .input .genre a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 24px;
     background-color: #022B3A;
+    font-size: 16px;
     color: white;
     border: none;
     border-radius: 20px;
+    text-decoration: none;
 }
 
 .page .page-content .book-form .book-content .input .genrelist{
