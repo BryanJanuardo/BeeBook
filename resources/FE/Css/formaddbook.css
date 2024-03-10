@@ -1,0 +1,106 @@
+.page{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page .page-header{
+    margin: 30px 0px;
+    font-weight: bold;
+    font-size: max(3vh, 16px);
+}
+
+.page .page-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.page .page-content .book-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.page .page-content .book-form .book-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.page .page-content .book-form .book-content .input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.page .page-content .book-form .book-content label{
+    font-size: 24px;
+}
+
+.page .page-content .book-form .book-content input{
+    padding: 0 0 0 20px;
+    width: 300px;
+    height: 30px;
+}
+
+.page .page-content .book-form .book-content .input .genre{
+    display: flex;
+    justify-content: space-between;
+}
+
+.page .page-content .book-form .book-content .input .genre button{
+    width: 100px;
+    height: 24px;
+    background-color: #022B3A;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.page .page-content .book-form .book-content .input .genrelist{
+    display: grid;
+    border: black solid;
+    border-width: 1px;
+    height: 80px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    grid-template-columns: 1fr 1fr;
+}
+
+.page .page-content .book-form .book-content .input .genrelist label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.page .page-content .book-form .book-content .input .genrelist label input{
+    width: 20px;
+}
+.page .page-content .book-form .book-content .input #file{
+    margin: 0;
+    padding: 0;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttons button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-color: transparent;
+    border-radius: 20px;
+    background-color: #022B3A;
+    color: white;
+}
