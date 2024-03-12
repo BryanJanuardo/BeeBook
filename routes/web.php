@@ -21,4 +21,4 @@ Route::get('/', function () {
 
 Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 
-Route::get('/AboutUs', [AboutController::class,'index'])->name('About Us');
+Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
