@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\GenreController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +25,9 @@ Route::get('/', function () {
 Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 
 Route::get('/AboutUs', [AboutController::class,'index'])->name('About Us');
+
+
+Route::get('/AddBook', [BookController::class,'index'])->name('Add Book');
+
+Route::get('/AddGenre', [GenreController::class,'index'])->name('Add Genre');
+

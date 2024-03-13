@@ -4,24 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Css/formaddbook.css">
-    <link rel="stylesheet" href="/Css/navbar.css">
+    <link rel="stylesheet" href="{{asset('CSS/formaddbook.css')}}">
+
 
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/" class="logo">BeeBook</a></li>
-            <li><a href="/about" class="link">About</a></li>
-            <li><a href="/forum" class="link">Forum</a></li>
-            <li><a href="/readlist" class="link">Read List</a></li>
-            <li><a href="/bookmark" class="link">Bookmark</a></li>
-        </ul>
-        <ul>
-            <li><a href="/pointexchange" class="link">120 <img src="/Assets/coin.png" class="coin"></a></li>
-            <li><a href="/changelanguage"><img src="/Assets/united-states.png" class="us"></a></li>
-        </ul>
-    </nav>
+    @extends('Layout')
+
+    @section('PageContent')
 
     <div class="page">
         <div class="page-header">
@@ -45,7 +35,7 @@
                     <div class="input">
                         <div class="genre">
                             <label for="BookGenre">Genre:</label>
-                            <a href="">Add Genre</a>
+                            <a href="{{route('Add Genre')}}">Add Genre</a>
                         </div>
                         <div class="genrelist">
                             <!-- buat ambil request ini $variabel = $request->input('genrelist');
@@ -86,9 +76,11 @@
                 </div>
             </form>
             <div class="buttons">
-                <button id="back-button" class="button">Back</button>
+                <a href="{{route('Dashboard')}}"><button id="back-button" class="button">Back</button></a>
+
             </div>
         </div>
     </div>
+    @endsection
 </body>
 </html>
