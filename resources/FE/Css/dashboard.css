@@ -10,6 +10,8 @@
 
 .page-header .genre-list{
     display: flex;
+
+    padding: 50px 0px 0px 0px;
 }
 
 .page-header .genre-list .genre-content{
@@ -79,4 +81,15 @@
     color: white;
     background-color: #022B3A;
     border-color: #022B3A;
+}
+
+#admin-button{
+    width: min(30vh, 200px);
+    height: min(20vh, 50px);
+    color: white;
+    background-color: #022B3A;
+    border-color: #022B3A;
+
+    cursor: pointer;
+
 }
