@@ -4,6 +4,10 @@
     font-family: "Inter", sans-serif;
 }
 
+a{
+    text-decoration: none;
+}
+
 .navbar{
     background-color: #022B3A;
     color: #E1E5F2;
@@ -13,7 +17,7 @@
 
 }
 
-ul {
+.navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -22,11 +26,11 @@ ul {
     align-items: stretch;
 }
 
-li{
+.navbar li{
     display: flex;
 }
 
-li a {
+.navbar li a {
     display: flex;
     justify-content: center;
     color: white;
@@ -51,4 +55,78 @@ li a {
 
 .us{
     width: 35px;
+}
+
+.lang-menu{
+    margin-top:25px;
+    margin-right: 25px;
+    position: relative;
+}
+
+.lang-menu ul li{
+    display: flex;
+}
+
+.selected-lang{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+    width: 100px;
+    margin-right: 25px;
+}
+
+.selected-lang::before{
+    content:'';
+    display:block;
+    width: 32px;
+    height: 32px;
+    background-image: url('/Asset/united-states.png');
+    background-size: cover;
+}
+
+.lang-menu ul{
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    display: none;
+    position: absolute;
+}
+
+.lang-menu ul li a{
+    width: 125px;
+    display: block;
+    padding: 5px 10px;
+    color:black;
+}
+
+.lang-menu ul li a::before{
+    content:'';
+    display:inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    margin-right: 10px;
+    background-image: url('/Asset/united-states.png');
+}
+
+.lang-menu ul li a:hover{
+   background-color: #f2f2f2;
+}
+
+.id::before{
+    background-image: url('/Asset/united-states.png');
+    background-size: cover;
+}
+
+.us::before{
+    background-image: url('/Asset/united-states.png');
+    background-size: contain;
+}
+
+.lang-menu:hover ul{
+    display: block;
 }
