@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 
@@ -24,10 +25,10 @@ Route::get('/', function () {
 
 Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 
-Route::get('/AboutUs', [AboutController::class,'index'])->name('About Us');
+Route::get('/AdminDashboard', [AdminDashboardController::class, 'index'])->name('Admin Dashboard');
 
+Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 
-Route::get('/AddBook', [BookController::class,'index'])->name('Add Book');
+Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
 
-Route::get('/AddGenre', [GenreController::class,'index'])->name('Add Genre');
-
+Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
