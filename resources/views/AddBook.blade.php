@@ -37,21 +37,24 @@
                             <input placeholder="Price" name="BookPrice" type="text">
                         </div>
                         <div class="input" id="BookGenre">
-                            <div class="genre">
-                                <label for="BookGenre">Genre:</label>
-                                <a href="{{ route('Add Genre') }}">Add Genre</a>
-                            </div>
-                            <div class="genrelist">
-                                <!-- buat ambil request ini $variabel = $request->input('genrelist');
-                                         $variabel akan menampilkan list genre dalam bentuk array -->
-                                <label><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</label>
-                                <label><input name="genrelist[]" value="Comedy" type="checkbox">Comedy</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                            </div>
+                            <form action="{{ route('Add Genre Name') }}" method="post">
+                                <div class="genre">
+                                    <label for="BookGenre">Genre:</label>
+                                    <a href="{{ route('Add Genre') }}">Add Genre</a>
+                                </div>
+
+                                <div class="genrelist">
+                                    <!-- buat ambil request ini $variabel = $request->input('genrelist');
+                                            $variabel akan menampilkan list genre dalam bentuk array -->
+                                    <label><input name="genrelist[]" value="Fiction" type="checkbox">Romance</label>
+                                    <label><input name="genrelist[]" value="Comedy" type="checkbox">Comedy</label>
+                                    <label><input name="genrelist[]" value="Drama" type="checkbox">Drama</label>
+                                    <label><input name="genrelist[]" value="SliceofLife" type="checkbox">Slice Of Life</label>
+                                    <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                    <label><input name="genrelist[]" value="Horror" type="checkbox">Horror</label>
+                                    <label><input name="genrelist[]" value="Thriller" type="checkbox">Thriller</label>
+                                </div>
+                            </form>
                         </div>
                         <div class="input" id="BookAuthor">
                             <label for="AuthorName">Author:</label>
