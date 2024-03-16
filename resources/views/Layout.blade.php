@@ -24,7 +24,19 @@
         </ul>
         <ul>
             <li><a href="" class="link">120 <img src="{{asset('Asset/coin.png')}}" class="coin"></a></li>
-            <li><a href=""><img src="{{asset('Asset/united-states.png')}}" class="us"></a></li>
+            <div class="lang-menu">
+                <div class="selected-lang">
+                    English
+                </div>
+                <ul>
+                    <li>
+                        <a href="#" class="us"> English</a>
+                    </li>
+                    <li>
+                        <a href="#" class="id"> Indonesia</a>
+                    </li>
+                </ul>
+            </div>
         </ul>
 
     </nav>
