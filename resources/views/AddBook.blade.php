@@ -22,7 +22,8 @@
                 <h1>Add Book</h1>
             </div>
             <div class="page-content">
-                <form class="book-form" action="">
+                <form class="book-form" action="{{ route('Post Book') }}" method="post">
+                    @csrf
                     <div class="book-content">
                         <div class="input" id="BookTitle">
                             <label for="BookTitle">Book Title:</label>
@@ -43,14 +44,14 @@
                             </div>
                             <div class="genrelist">
                                 <!-- buat ambil request ini $variabel = $request->input('genrelist');
-                                         $variabel akan menampilkan list genre dalam bentuk array -->
-                                <label><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</label>
-                                <label><input name="genrelist[]" value="Comedy" type="checkbox">Comedy</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                                                                 $variabel akan menampilkan list genre dalam bentuk array -->
+                                <label><input name="BookGenre" value="Fiction" type="checkbox">Fiction</label>
+                                <label><input name="BookGenre" value="Comedy" type="checkbox">Comedy</label>
+                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
+                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
+                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
+                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
+                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
                             </div>
                         </div>
                         <div class="input" id="BookAuthor">
@@ -71,7 +72,7 @@
                         </div>
                         <div class="input" id="BookPicture">
                             <label for="BookPicture">Book Picture<Picture> <span> *PDF:</span></Picture></label>
-                            <input id="file" type="file">
+                            <input id="file" type="file" name="BookPicture">
                         </div>
                     </div>
                     <div class="error-message"></div>
