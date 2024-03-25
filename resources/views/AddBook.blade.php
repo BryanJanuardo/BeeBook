@@ -22,7 +22,8 @@
                 <h1>Add Book</h1>
             </div>
             <div class="page-content">
-                <form class="book-form" action="">
+                <form class="book-form" action="{{ route('Post Book') }}" method="post">
+                    @csrf
                     <div class="book-content">
                         <div class="input" id="BookTitle">
                             <label for="BookTitle">Book Title:</label>
@@ -37,24 +38,21 @@
                             <input placeholder="Price" name="BookPrice" type="text">
                         </div>
                         <div class="input" id="BookGenre">
-                            <form action="{{ route('Add Genre Name') }}" method="post">
-                                <div class="genre">
-                                    <label for="BookGenre">Genre:</label>
-                                    <a href="{{ route('Add Genre') }}">Add Genre</a>
-                                </div>
-
-                                <div class="genrelist">
-                                    <!-- buat ambil request ini $variabel = $request->input('genrelist');
-                                            $variabel akan menampilkan list genre dalam bentuk array -->
-                                    <label><input name="genrelist[]" value="Fiction" type="checkbox">Romance</label>
-                                    <label><input name="genrelist[]" value="Comedy" type="checkbox">Comedy</label>
-                                    <label><input name="genrelist[]" value="Drama" type="checkbox">Drama</label>
-                                    <label><input name="genrelist[]" value="SliceofLife" type="checkbox">Slice Of Life</label>
-                                    <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
-                                    <label><input name="genrelist[]" value="Horror" type="checkbox">Horror</label>
-                                    <label><input name="genrelist[]" value="Thriller" type="checkbox">Thriller</label>
-                                </div>
-                            </form>
+                            <div class="genre">
+                                <label for="BookGenre">Genre:</label>
+                                <a href="{{ route('Add Genre') }}">Add Genre</a>
+                            </div>
+                            <div class="genrelist">
+                                <!-- buat ambil request ini $variabel = $request->input('genrelist');
+                                         $variabel akan menampilkan list genre dalam bentuk array -->
+                                <label><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</label>
+                                <label><input name="genrelist[]" value="Comedy" type="checkbox">Comedy</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                            </div>
                         </div>
                         <div class="input" id="BookAuthor">
                             <label for="AuthorName">Author:</label>
@@ -74,7 +72,7 @@
                         </div>
                         <div class="input" id="BookPicture">
                             <label for="BookPicture">Book Picture<Picture> <span> *PDF:</span></Picture></label>
-                            <input id="file" type="file">
+                            <input id="file" type="file" name="BookPicture">
                         </div>
                     </div>
                     <div class="error-message"></div>

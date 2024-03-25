@@ -32,3 +32,5 @@ Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
 
 Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
+
+Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');
