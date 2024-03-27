@@ -44,14 +44,14 @@
                             </div>
                             <div class="genrelist">
                                 <!-- buat ambil request ini $variabel = $request->input('genrelist');
-                                                                                 $variabel akan menampilkan list genre dalam bentuk array -->
-                                <label><input name="BookGenre" value="Fiction" type="checkbox">Fiction</label>
-                                <label><input name="BookGenre" value="Comedy" type="checkbox">Comedy</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
+                                         $variabel akan menampilkan list genre dalam bentuk array -->
+                                <label><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</label>
+                                <label><input name="genrelist[]" value="Comedy" type="checkbox">Comedy</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
+                                <label><input name="genrelist[]" value="Education" type="checkbox">Education</label>
                             </div>
                         </div>
                         <div class="input" id="BookAuthor">

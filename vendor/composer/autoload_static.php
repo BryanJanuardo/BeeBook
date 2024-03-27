@@ -38,6 +38,7 @@ class ComposerStaticInitcce7b998e560ee3322775705c0e81abc
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
+        '8fde5feda9697fe0ee53a3938c839fb0' => __DIR__ . '/../..' . '/app/Helpers/Helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -135,6 +136,10 @@ class ComposerStaticInitcce7b998e560ee3322775705c0e81abc
         array (
             'Illuminate\\Support\\' => 19,
             'Illuminate\\' => 11,
+        ),
+        'H' => 
+        array (
+            'Haruncpi\\LaravelIdGenerator\\' => 28,
         ),
         'G' => 
         array (
@@ -354,8 +359,8 @@ class ComposerStaticInitcce7b998e560ee3322775705c0e81abc
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -442,6 +447,10 @@ class ComposerStaticInitcce7b998e560ee3322775705c0e81abc
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'Haruncpi\\LaravelIdGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src',
         ),
         'GuzzleHttp\\UriTemplate\\' => 
         array (
@@ -531,7 +540,14 @@ class ComposerStaticInitcce7b998e560ee3322775705c0e81abc
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Helpers\\Helper' => __DIR__ . '/../..' . '/app/Helpers/Helper.php',
+        'App\\Http\\Controllers\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/AboutController.php',
+        'App\\Http\\Controllers\\AdminDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminDashboardController.php',
+        'App\\Http\\Controllers\\BookController' => __DIR__ . '/../..' . '/app/Http/Controllers/BookController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
+        'App\\Http\\Controllers\\GenreController' => __DIR__ . '/../..' . '/app/Http/Controllers/GenreController.php',
+        'App\\Http\\Controllers\\TestingHelperController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestingHelperController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -542,6 +558,8 @@ class ComposerStaticInitcce7b998e560ee3322775705c0e81abc
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Book' => __DIR__ . '/../..' . '/app/Models/Book.php',
+        'App\\Models\\Genre' => __DIR__ . '/../..' . '/app/Models/Genre.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -1537,6 +1555,9 @@ class ComposerStaticInitcce7b998e560ee3322775705c0e81abc
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Haruncpi\\LaravelIdGenerator\\IdGenerator' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/IdGenerator.php',
+        'Haruncpi\\LaravelIdGenerator\\IdGeneratorServiceProvider' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/IdGeneratorServiceProvider.php',
+        'Haruncpi\\LaravelIdGenerator\\Traits\\IdFactory' => __DIR__ . '/..' . '/haruncpi/laravel-id-generator/src/Traits/IdFactory.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',

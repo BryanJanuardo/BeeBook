@@ -81,7 +81,7 @@ a{
     display:block;
     width: 32px;
     height: 32px;
-    background-image: url('/Assets/united-states.png');
+    background-image: url('../Assets/united-states.png');
     background-size: cover;
 }
 
@@ -110,7 +110,7 @@ a{
     height: 32px;
     vertical-align: middle;
     margin-right: 10px;
-    background-image: url('/Assets/united-states.png');
+    background-image: url('../Assets/united-states.png');
     background-size: cover;
 }
 
@@ -119,11 +119,11 @@ a{
 }
 
 .id::before{
-    background-image: url('/Assets/united-states.png');
+    background-image: url('../Assets/indonesia.png');
 }
 
 .us::before{
-    background-image: url('/Assets/united-states.png');
+    background-image: url('../Assets/united-states.png');
 }
 
 .lang-menu:hover ul{
