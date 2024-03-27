@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use app\Http\Controllers\TestingHelperController;
+use App\Models\Genre;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 
 Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
 
-Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
 
+Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
+Route::post('/AddGenre', [GenreController::class, 'NewGenre']);
 Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');

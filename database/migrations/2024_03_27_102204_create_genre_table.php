@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('GenreTypes', function (Blueprint $table) {
-            $table->integer('Id');
-            $table->char('GenreId');
-            $table->char('ISBN');
+        Schema::create('AddGenre', function (Blueprint $table) {
+            $table->uuid('GenreId')->primary();
+            $table->string('GenreName');
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_genre_type_tavle');
+        Schema::dropIfExists('AddGenre');
     }
 };

@@ -15,11 +15,12 @@
 
     <div class="form-container">
         <h1>Add Genre</h1>
-        <form action="#">
+        <form action="/AddGenre" method="POST">
+            @csrf
             <div class="input-box">
 
-                <label for="genre">Genre:</label>
-                <input placeholder="Genre" id="Genre" name="Genre" type="text"><br><br>
+                <label for="GenreName">Genre:</label>
+                <input placeholder="Name" id="GenreName" name="GenreName" type="text"><br><br>
 
 
 
