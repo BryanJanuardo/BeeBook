@@ -21,7 +21,7 @@
         <div class="page-header">
             <form action="">
                 <div>
-                    <li><a href="{{ route('Add Book') }}" class="link" id="admin-button">Admin</a></li>
+                    <div style="display: flex;"><a href="{{ route('Add Book') }}" class="link" id="admin-button">Add Book</a></div>
                 </div>
                 <div class="genre-list">
                     <button id="all-genre-content" class="genre-content">All</button>

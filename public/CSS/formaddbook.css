@@ -20,14 +20,14 @@
 
 .page .page-content .book-form{
     gap: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .page .page-content .book-form .book-content{
-    display: grid;
-    grid-template-columns: 0.1fr 1fr 0.5fr 1fr 0.1fr;
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .page .page-content .book-form .book-content .input{
@@ -112,19 +112,25 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.page .page-content .book-form .book-content .input .genrelist label{
+.page .page-content .book-form .book-content .input .genrelist a{
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 16px;
     margin: 0 10px;
+    text-decoration: none;
+    color: black;
 }
 
-.page .page-content .book-form .book-content .input .genrelist label input{
+.page .page-content .book-form .book-content .input .genrelist a:hover{
+    background-color: rgb(212, 212, 212);
+}
+
+.page .page-content .book-form .book-content .input .genrelist a input{
     width: 20px;
 }
 .page .page-content .book-form .book-content .input #file{
-    margin: 0;
+    margin: 10px 0px 0px 0px;
     padding: 0;
 }
 
@@ -149,7 +155,12 @@
 }
 
 #back-button{
-    margin: 20px 0px 0px 20px;
     color: white;
     background-color: #022B3A;
+}
+
+#dateinput{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
