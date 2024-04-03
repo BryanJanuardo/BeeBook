@@ -1,0 +1,293 @@
+.detail-container{
+    width: 90%;
+    height: 50vh;
+    margin: min(8vh, 60px) auto;
+    /* background-color: yellow; */
+    display: flex;
+}
+
+.left{
+    width: 30%;
+    justify-content: center;
+    display: flex;
+}
+
+.right{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: brown; */
+}
+
+.book{
+    height: 100%;
+}
+
+.title{
+    font-size: 40px;
+}
+
+.author{
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.rating{
+    font-size: 20px;
+}
+
+.desc{
+    font-size: 20px;
+    margin: 30px 0;
+}
+
+.read-now{
+    width: 120px;
+    padding: 10px;
+    background-color: #022B3A;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #E1E5F2;
+    font-size: 18px;
+}
+
+hr{
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    margin: auto;
+}
+
+.rating-container{
+    width: 85%;
+    margin: min(8vh,40px) auto;
+}
+
+.rating-send{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.rating-send input{
+    width: 40px;
+    padding: 10px;
+    background-color: #022B3A;
+    color: #E1E5F2;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.rating-send button{
+    width: 80px;
+    padding: 2px;
+    background-color: #022B3A;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #E1E5F2;
+    font-size: 18px;
+}
+
+.comment-container{
+    width: 85%;
+    margin: 0 auto min(8vh,40px) auto;
+}
+
+.comment-send{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.comment-send input{
+    width: 85%;
+    padding: 15px;
+    background-color: #022B3A;
+    color: #E1E5F2;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+.comment-send button{
+    width: 15%;
+    padding: 2px;
+    background-color: #022B3A;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #E1E5F2;
+    font-size: 18px;
+}
+
+.cards{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* background-color: brown; */
+}
+
+.card{
+    width: 40%;
+    padding: 30px;
+    margin-bottom: 25px;
+    background-color: #022B3A;
+    color: #E1E5F2;
+}
+
+.card h3{
+    font-size: 20px;
+    font-weight: 750;
+    margin-bottom: 7px;
+}
+
+@media (max-width:900px) {
+    .book{
+        width: 100%;
+        height: auto;
+    }
+
+    .left{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title{
+        font-size: 30px;
+    }
+
+    .author{
+        font-size: 17px;
+    }
+
+    .rating{
+        font-size: 17px;
+    }
+
+    .desc{
+        font-size: 17px;
+    }
+
+    .read-now{
+        width: 100px;
+        padding: 7px;
+        font-size: 15px;
+    }
+
+    .rating-container h2{
+        font-size: 18px;
+    }
+
+    .rating-send input{
+        font-size: 16px;
+    }
+
+    .rating-send button{
+        font-size: 16px;
+    }
+
+    .comment-container h2{
+        font-size: 18px;
+    }
+
+    .comment-send input{
+        font-size: 16px;
+    }
+
+    .comment-send button{
+        font-size: 16px;
+    }
+
+    .card h3{
+        font-size: 18px;
+    }
+
+    .card p{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .detail-container{
+        margin: 0 auto;
+    }
+
+    .title{
+        font-size: 23px;
+    }
+
+    .author{
+        margin: 5px 0 5px 0;
+        font-size: 15px;
+    }
+
+    .rating{
+        font-size: 15px;
+    }
+
+    .desc{
+        margin: 10px 0 10px 0;
+        font-size: 15px;
+    }
+
+    .read-now{
+        width: 80px;
+        padding: 4px;
+        font-size: 13px;
+    }
+
+    .rating-container h2{
+        font-size: 16px;
+    }
+
+    .rating-send input{
+        font-size: 13px;
+    }
+
+    .rating-send button{
+        font-size: 13px;
+    }
+
+    .comment-container h2{
+        font-size: 16px;
+    }
+
+    .comment-send input{
+        font-size: 13px;
+    }
+
+    .comment-send button{
+        font-size: 13px;
+    }
+
+    .card h3{
+        font-size: 16px;
+    }
+
+    .card p{
+        font-size: 13px;
+    }
+
+    .comment-container{
+        width: 85%;
+        margin: 15px auto;
+    }
+
+    .rating-container{
+        width: 85%;
+        margin: 15px auto;
+    }
+
+    .card{
+        margin-bottom: 15px;
+    }
+}
