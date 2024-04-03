@@ -15,9 +15,6 @@
 
     @section('PageContent')
         <div class="page">
-            <div>
-                <li><a href="{{ route('Admin Dashboard') }}" class="link" id="back-button">Back</a></li>
-            </div>
             <div class="page-header">
                 <h1>Add Book</h1>
             </div>
@@ -44,14 +41,13 @@
                             </div>
                             <div class="genrelist">
                                 <!-- buat ambil request ini $variabel = $request->input('genrelist');
-                                                                                 $variabel akan menampilkan list genre dalam bentuk array -->
-                                <label><input name="BookGenre" value="Fiction" type="checkbox">Fiction</label>
-                                <label><input name="BookGenre" value="Comedy" type="checkbox">Comedy</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
-                                <label><input name="BookGenre" value="Education" type="checkbox">Education</label>
+                                 $variabel akan menampilkan list genre dalam bentuk array -->
+                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
+                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
+                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
+                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
+                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
+                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
                             </div>
                         </div>
                         <div class="input" id="BookAuthor">
@@ -81,7 +77,7 @@
                     </div>
                 </form>
                 <div class="buttons">
-                    <a href="{{ route('Dashboard') }}"><button id="back-button" class="button">Back</button></a>
+                    <a href="{{ route('Admin Dashboard') }}"><button id="back-button" class="button">Back</button></a>
 
                 </div>
             </div>
