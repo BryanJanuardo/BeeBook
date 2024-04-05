@@ -2,7 +2,6 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    background-color: #E1E5F2;
 }
 
 .page .page-header{
@@ -82,7 +81,6 @@
     padding-top: 20px;
     grid-area: 5 / 2 / 6 / 3;
 }
-
 .page .page-content .book-form .book-content .input .genre{
     display: flex;
     justify-content: space-between;

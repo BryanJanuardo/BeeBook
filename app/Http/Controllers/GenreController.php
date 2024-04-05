@@ -10,4 +10,9 @@ class GenreController extends Controller
     public function index(){
         return view('AddGenre');
     }
+
+    public function editIndex()
+    {
+        return view ('EditGenre');
+    }
 }
