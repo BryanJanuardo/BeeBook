@@ -14,14 +14,14 @@
 
     <div class="form-container">
         <h1>Edit / Delete Genre</h1>
-        <form action="#">
+        <form id="formGenre" action="#">
             <div class="input-box">
                 <label for="genre">Current Genre: <span style="font-weight: bold;"> Comedy</span></label>
                 <input placeholder="Genre" id="Genre" name="Genre" type="text"><br><br>
             </div>
             <div class="button-box">
-                <button type="submit" >Edit Genre</button>
-                <button>Delete Genre</button>
+                <button >Edit Genre</button>
+                <button id="deleteButton">Delete Genre</button>
             </div>
             <br>
         </form>
@@ -30,4 +30,16 @@
     </div>
     @endsection
 </body>
+
+<script>
+    
+    document.getElementById('deleteButton').addEventListener('click', function() {
+    var newAction = "/deleteGenre/" + id; 
+    document.getElementById('formGenre').setAttribute('action', newAction);
+    document.getElementById('formGenre').submit();
+  });
+  
+</script>
+
+
 </html>

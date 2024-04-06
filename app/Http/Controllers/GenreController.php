@@ -15,4 +15,13 @@ class GenreController extends Controller
     {
         return view ('EditGenre');
     }
+
+    public function deleteIndex($id) {
+
+        $genre = Genre::findOrFail($id);
+        $genre->delete();
+
+        return redirect ('Edit Book');
+
+    }
 }
