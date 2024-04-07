@@ -38,7 +38,7 @@
 
         <div class="page-content" action="">
             @for ($i = 0; $i < 12; $i++)
-                <form action="{{route('Detail Book', ['id' => '1'])}}">
+                <form action="{{route('Detail Book', ['ISBN' => '1'])}}">
                     <button class="book-card">
                         <img class="book-picture" src="./storage/Book/SCC2.png" alt="">
                         <div class="book-content">

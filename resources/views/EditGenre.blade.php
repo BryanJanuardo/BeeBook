@@ -16,7 +16,7 @@
         <h1>Edit / Delete Genre</h1>
         <form action="#">
             <div class="input-box">
-                <label for="genre">Current Genre: <span style="font-weight: bold;"> Comedy</span></label>
+                <label for="genre">Current Genre: <span style="font-weight: bold;"> {{$genre->GenreName}}</span></label>
                 <input placeholder="Genre" id="Genre" name="Genre" type="text"><br><br>
             </div>
             <div class="button-box">

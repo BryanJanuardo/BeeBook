@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -11,8 +12,20 @@ class GenreController extends Controller
         return view('AddGenre');
     }
 
-    public function editIndex()
+    public function editIndex($id)
     {
-        return view ('EditGenre');
+        $genre = Genre::findOrFail($id);
+        return view ('EditGenre')->with('genre', $genre);
     }
+
+    public function NewGenre(Request $request)
+     {
+         $validatedData = $request->validate([
+             'GenreName' => 'required'
+         ]);
+
+
+
+         return redirect()->route('Add Book');
+     }
 }

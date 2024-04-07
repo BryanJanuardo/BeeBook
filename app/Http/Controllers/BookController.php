@@ -18,9 +18,10 @@ class BookController extends Controller
         return view ('EditBook');
     }
 
-    public function detailBook($id)
+    public function detailBook($ISBN)
     {
-        return view('DetailBook');
+        $book = Book::where('ISBN', $ISBN)->firstOrFail();
+        return view('DetailBook')->with('book', $book);
     }
 
     public function addBook(Request $request)

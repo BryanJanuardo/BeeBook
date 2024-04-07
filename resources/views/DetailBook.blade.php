@@ -24,7 +24,7 @@
             </div>
 
             <div class="right">
-                <h1 class="title">Psychology of Money</h1>
+                <h1 class="title">{{$book->BookTitle}}</h1>
                 <p class="author"><strong>By</strong> Morgan Housel</p>
                 <h3 class="rating">4.5/10</h3>
                 <p class="desc">Timeless lessons on wealth, greed, and happiness</p>

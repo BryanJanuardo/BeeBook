@@ -20,21 +20,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('AdminDashboard');
 });
 
 Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 
 Route::get('/AdminDashboard', [AdminDashboardController::class, 'index'])->name('Admin Dashboard');
 
-Route::get('/DetailBook/{id}', [BookController::class, 'detailBook'])->name('Detail Book');
+Route::get('/DetailBook/{ISBN}', [BookController::class, 'detailBook'])->name('Detail Book');
 
 Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 
 Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
-Route::get('/EditBook', [BookController::class, 'editIndex'])->name('Edit Book');
+Route::get('/EditBook/{id}', [BookController::class, 'editIndex'])->name('Edit Book');
 
 Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
-Route::get('/EditGenre', [GenreController::class, 'editIndex'])->name('Edit Genre');
+Route::get('/EditGenre/{id}', [GenreController::class, 'editIndex'])->name('Edit Genre');
 
 Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');
