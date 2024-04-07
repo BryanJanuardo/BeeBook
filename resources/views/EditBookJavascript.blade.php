@@ -18,21 +18,19 @@
             <h1>Edit / Delete Book</h1>
         </div>
         <div class="page-content">
-            <form class="book-form" action="/EditData/{{ $book -> id}}" id = "bookForm">
-                @method('patch')
-                @csrf
+            <form class="book-form" action="/EditData/{{ $book -> slug}}" "javascript:updateValue()" id = "bookForm">
                 <div class="book-content">
                     <div class="input">
                         <label for="BookTitle">Book Title:</label>
-                        <input placeholder="Book Title" name="BookTitle" id="BookTitle" type="text" required autofocus value="{{ old('title', $book->title) }}">
+                        <input placeholder="Book Title" name="BookTitle" id="BookTitle" type="text">
                     </div>
                     <div class="input">
                         <label for="BookPage">Book Page:</label>
-                        <input placeholder="Book Page" name="BookPage" id="BookPage" type="text" required autofocus value="{{ old('page', $book->page) }}">
+                        <input placeholder="Book Page" name="BookPage" id="BookPage" type="text">
                     </div>
                     <div class="input">
                         <label for="BookPrice">Price <span> *Optional: </span></label>
-                        <input placeholder="Price" name="BookPrice" id="BookPrice" type="text" required autofocus value="{{ old('price', $book->price) }}">
+                        <input placeholder="Price" name="BookPrice" id="BookPrice" type="text">
                     </div>
                     <div class="input">
                         <div class="genre">
@@ -52,23 +50,23 @@
                     </div>
                     <div class="input">
                         <label for="AuthorName">Author:</label>
-                        <input placeholder="Author" name="AuthorName" id="AuthorName" type="text" required autofocus value="{{ old('author', $book->author) }}">
+                        <input placeholder="Author" name="AuthorName" id="AuthorName" type="text">
                     </div>
                     <div class="input">
                         <label for="AuthorAddress">Author Address:</label>
-                        <input placeholder="Author Address" name="AuthorAddress" id="AuthorAddress" type="text" required autofocus value="{{ old('address', $book->address) }}">
+                        <input placeholder="Author Address" name="AuthorAddress" id="AuthorAddress" type="text">
                     </div>
                     <div class="input">
                         <label for="PublisherName">Publisher:</label>
-                        <input placeholder="Publisher" name="PublisherName" id="PublisherName" type="text" required autofocus value="{{ old('publisher', $book->publisher) }}">
+                        <input placeholder="Publisher" name="PublisherName" id="PublisherName" type="text">
                     </div>
                     <div class="input">
                         <label for="PublishDate">Publish Date:</label>
-                        <input id="dateinput" name="PublishDate" type="date" required autofocus value="{{ old('date', $book->date) }}">
+                        <input id="dateinput" name="PublishDate" type="date">
                     </div>
                     <div class="input">
                         <label for="BookPicture">Book Picture<Picture> <span> *PDF:</span></Picture></label>
-                        <input id="file" type="file" name="BookPicture">
+                        <input id="file" type="file">
                     </div>
                 </div>
                 <div class="error-message"></div>
@@ -85,6 +83,39 @@
     </div>
     @endsection
 
+    <script language= "javascript" type="text/javascript">
+
+        window.addEventListener('load', loadpage);
+
+        function loadpage(){
+            var updateTitle = null;
+            var updatePage = null;
+            var updatePrice = null;
+            var updateGenre = null;
+            var updateAuthor = null;
+            var updateAuthorAddress = null;
+            var updatePublisher = null;
+            var updatePublishDate = null;
+            var updateBookPicture = null;
+            console.log("loaded");
+        }
+
+        function updateValue(){
+            var updateTitle = document.getElementById('BookTitle').value;
+            var updatePage = document.getElementById('BookPage').value;
+            var updatePrice = document.getElementById('BookPrice').value;
+            var updateGenre = document.getElementById('genrelist').value;
+            var updateAuthor = document.getElementById('AuthorName').value;
+            var updateAuthorAddress = document.getElementById('AuthorAddress').value;
+            var updatePublisher = document.getElementById('PublisherName').value;
+            var updatePublishDate = document.getElementById('dateinput').value;
+            var updateBookPicture = document.getElementById('file').value;
+            Route::put('/books/{id}', 'BookController@update');
+        }
+
+    </script>
 </body>
+
+
 
 </html>

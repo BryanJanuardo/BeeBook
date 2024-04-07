@@ -13,10 +13,21 @@ class BookController extends Controller
         return view('AddBook');
     }
 
-    public function editIndex()
+    public function editIndex($id)
     {
-        return view ('EditBook');
+        $book = Book::find($id);
+        return view ('EditBook', compact('book'));
     }
+
+    public function update(Request $request, $id)
+{
+    $item = Book::find($id);
+    $item->name = $request->input('name');
+    $item->description = $request->input('description');
+
+    $item->save();
+    return redirect('/items')->with('success', 'Item updated successfully');
+}
 
     public function detailBook($id)
     {
