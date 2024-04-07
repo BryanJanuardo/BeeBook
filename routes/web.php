@@ -36,5 +36,6 @@ Route::get('/EditBook/{id}', [BookController::class, 'editIndex'])->name('Edit B
 
 Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
 Route::get('/EditGenre/{id}', [GenreController::class, 'editIndex'])->name('Edit Genre');
+Route::post('/CreateGenre', [GenreController::class, 'createGenre'])->name('Create Genre');
 
-Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');
+Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Create Book');

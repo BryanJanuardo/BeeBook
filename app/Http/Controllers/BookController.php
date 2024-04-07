@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     public function index()
     {
-        return view('AddBook');
+        $genres = Genre::all();
+        return view('AddBook')->with('genres', $genres);
     }
 
     public function editIndex()

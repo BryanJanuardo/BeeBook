@@ -40,12 +40,9 @@
                         <div class="genrelist">
                             <!-- buat ambil request ini $variabel = $request->input('genrelist');
                                  $variabel akan menampilkan list genre dalam bentuk array -->
-                            <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                            <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                            <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                            <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                            <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                            <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
+                                 @foreach ($genres as $genre)
+                                 <a href="{{route('Edit Genre', ['id' => $genre->id])}}"><input name="genrelist[]" value="{{$genre->GenreName}}" type="checkbox">{{$genre->GenreName}}</a>
+                             @endforeach
                         </div>
                     </div>
                     <div class="input">

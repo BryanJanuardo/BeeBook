@@ -18,13 +18,22 @@ class GenreController extends Controller
         return view ('EditGenre')->with('genre', $genre);
     }
 
-    public function NewGenre(Request $request)
+    public function createGenre(Request $request)
      {
-         $validatedData = $request->validate([
-             'GenreName' => 'required'
-         ]);
+        $latestGenre = Genre::latest()->first();
+        $latestGenreId = '';
 
+        if($latestGenre == null){
+            $latestGenreId = 'GE-001';
+        }else{
+            $latestGenreId = substr($latestGenre->id, 3);
+            $latestGenreId = 'GE-' . str_pad((int)$latestGenreId + 1, 3, '0', STR_PAD_LEFT);
+        }
 
+        Genre::create([
+            'id' => $latestGenreId,
+            'GenreName' => $request->GenreName
+        ]);
 
          return redirect()->route('Add Book');
      }

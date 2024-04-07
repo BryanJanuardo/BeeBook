@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('BookTitle');
             $table->string('BookGenre');
             $table->string('BookPrice')->nullable();
-            $table->string('BookPage');
+            $table->integer('BookPage');
             $table->string('BookPicture');
+            $table->string('BookFile');
             $table->timestamps();
         });
     }
