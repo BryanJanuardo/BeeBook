@@ -18,19 +18,19 @@
             <h1>Edit / Delete Book</h1>
         </div>
         <div class="page-content">
-            <form class="book-form" action="">
+            <form class="book-form" id="book-form" action="#">
                 <div class="book-content">
                     <div class="input">
                         <label for="BookTitle">Book Title:</label>
-                        <input placeholder="Book Title" name="BookTitle" type="text">
+                        <input placeholder="Book Title" name="BookTitle" type="text" required autofocus value="{{ old('BookTitle',$book->BookTitle) }}">
                     </div>
                     <div class="input">
                         <label for="BookPage">Book Page:</label>
-                        <input placeholder="Book Page" name="BookPage" type="text">
+                        <input placeholder="Book Page" name="BookPage" type="text" required autofocus value="{{ old('BookPage',$book->BookPage) }}">
                     </div>
                     <div class="input">
                         <label for="BookPrice">Price <span> *Optional: </span></label>
-                        <input placeholder="Price" name="BookPrice" type="text">
+                        <input placeholder="Price" name="BookPrice" type="text" required autofocus value="{{ old('BookPrice',$book->BookPrice) }}">
                     </div>
                     <div class="input">
                         <div class="genre">
@@ -50,19 +50,19 @@
                     </div>
                     <div class="input">
                         <label for="AuthorName">Author:</label>
-                        <input placeholder="Author" name="AuthorName" type="text">
+                        <input placeholder="Author" name="AuthorName" type="text" required autofocus value="{{ old('AuthorName',$book->AuthorName) }}">
                     </div>
                     <div class="input">
                         <label for="AuthorAddress">Author Address:</label>
-                        <input placeholder="Author Address" name="AuthorAddress" type="text">
+                        <input placeholder="Author Address" name="AuthorAddress" type="text" required autofocus value="{{ old('AuthorAddress',$book->AuthorAddress) }}">
                     </div>
                     <div class="input">
                         <label for="PublisherName">Publisher:</label>
-                        <input placeholder="Publisher" name="PublisherName" type="text">
+                        <input placeholder="Publisher" name="PublisherName" type="text" required autofocus value="{{ old('PublisherName',$book->PublisherName) }}">
                     </div>
                     <div class="input">
                         <label for="PublishDate">Publish Date:</label>
-                        <input id="dateinput" name="PublishDate" type="date">
+                        <input id="dateinput" name="PublishDate" type="date" required autofocus value="{{ old('PublishDate',$book->PublishDate) }}">
                     </div>
                     <div class="input">
                         <label for="BookPicture">Book Picture<Picture> <span> *PDF:</span></Picture></label>
@@ -81,6 +81,20 @@
             </div>
         </div>
     </div>
+    <script>
+        var ISBN = {!! $ISBN !!};
+
+        document.getElementById("submit-button").addEventListener('click', function() {
+        var newAction = "/EditBook/" + ISBN + "/Post";
+        document.getElementById("book-form").setAttribute('action', newAction);
+        document.getElementById("book-form").submit();
+      });
+
+    </script>
     @endsection
+
 </body>
+
+
+
 </html>

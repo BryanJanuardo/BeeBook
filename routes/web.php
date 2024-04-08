@@ -32,7 +32,8 @@ Route::get('/DetailBook/{id}', [BookController::class, 'detailBook'])->name('Det
 Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 
 Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
-Route::get('/EditBook', [BookController::class, 'editIndex'])->name('Edit Book');
+Route::get('/EditBook/{ISBN}', [BookController::class, 'editIndex'])->name('Edit Book');
+Route::get('/EditBook/{ISBN}/Post', [BookController::class, 'update'])->name('Update Book');
 
 Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
 Route::get('/EditGenre', [GenreController::class, 'editIndex'])->name('Edit Genre');
