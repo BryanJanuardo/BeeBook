@@ -32,5 +32,20 @@ class GenreController extends Controller
          $store->save();
          return redirect()->route('Add Book')->with('success','New genre added!');
      }
-}
+    }
+
+    public function editIndex()
+    {
+        return view ('EditGenre');
+    }
+
+    public function deleteIndex($id) {
+
+        $genre = Genre::findOrFail($id);
+        $genre->delete();
+
+        return redirect ('Edit Book');
+
+    }
+
 

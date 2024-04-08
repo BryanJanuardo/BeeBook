@@ -3,29 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/Css/formaddbook.css">
-    <link rel="stylesheet" href="/Css/navbar.css">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="{{asset("/CSS/formeditbook.css")}}">
 
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/" class="logo">BeeBook</a></li>
-            <li><a href="/about" class="link">About</a></li>
-            <li><a href="/forum" class="link">Forum</a></li>
-            <li><a href="/readlist" class="link">Read List</a></li>
-            <li><a href="/bookmark" class="link">Bookmark</a></li>
-        </ul>
-        <ul>
-            <li><a href="/pointexchange" class="link">120 <img src="/Assets/coin.png" class="coin"></a></li>
-            <li><a href="/changelanguage"><img src="/Assets/united-states.png" class="us"></a></li>
-        </ul>
-    </nav>
+
+    @extends('Layout')
+
+    @section('PageContent')
 
     <div class="page">
         <div class="page-header">
-            <h1>Add Book</h1>
+            <h1>Edit / Delete Book</h1>
         </div>
         <div class="page-content">
             <form class="book-form" action="">
@@ -81,7 +71,8 @@
                 </div>
                 <div class="error-message"></div>
                 <div class="buttons">
-                    <button id="submit-button" class="button" type="submit">Add Book</button>
+                    <button id="submit-button" class="button" type="submit">Submit</button>
+                    <button>Delete</button>
                 </div>
             </form>
             <div class="buttons">
@@ -90,5 +81,6 @@
             </div>
         </div>
     </div>
+    @endsection
 </body>
 </html>

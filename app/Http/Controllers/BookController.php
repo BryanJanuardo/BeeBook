@@ -13,6 +13,16 @@ class BookController extends Controller
         return view('AddBook');
     }
 
+    public function editIndex()
+    {
+        return view ('EditBook');
+    }
+
+    public function detailBook($id)
+    {
+        return view('DetailBook');
+    }
+
     public function addBook(Request $request)
     {
         Book::create($request->all());

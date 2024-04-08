@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
+    <title>Admin Dashboard</title>
 
     <link rel="stylesheet" href="{{ asset('CSS/dashboard.css') }}">
 
@@ -21,7 +21,7 @@
         <div class="page-header">
             <form action="">
                 <div>
-                    <li><a href="{{ route('Add Book') }}" class="link" id="admin-button">Admin</a></li>
+                    <div style="display: flex;"><a href="{{ route('Add Book') }}" class="link" id="admin-button">Add Book</a></div>
                 </div>
                 <div class="genre-list">
                     <button id="all-genre-content" class="genre-content">All</button>
@@ -38,7 +38,7 @@
 
         <div class="page-content" action="">
             @for ($i = 0; $i < 12; $i++)
-                <form action="">
+                <form action="{{route('Detail Book', ['id' => '1'])}}">
                     <button class="book-card">
                         <img class="book-picture" src="./storage/Book/SCC2.png" alt="">
                         <div class="book-content">
