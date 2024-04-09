@@ -43,9 +43,9 @@ class BookController extends Controller
         return back();
     }
 
-    public function detailBook($id)
+    public function detailBook($ISBN)
     {
-        return view('DetailBook');
+        return view('DetailBook', ['ISBN' => $ISBN]);
     }
 
     public function addBook(Request $request)

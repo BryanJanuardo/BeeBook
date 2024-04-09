@@ -76,7 +76,7 @@
                 </div>
             </form>
             <div class="buttons">
-                <a href=""><button id="back-button" class="button">Back</button></a>
+                <a href="{{route('Detail Book', ['ISBN' => $ISBN])}}"><button id="back-button" class="button">Back</button></a>
 
             </div>
         </div>

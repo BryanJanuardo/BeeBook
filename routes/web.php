@@ -27,7 +27,7 @@ Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard
 
 Route::get('/AdminDashboard', [AdminDashboardController::class, 'index'])->name('Admin Dashboard');
 
-Route::get('/DetailBook/{id}', [BookController::class, 'detailBook'])->name('Detail Book');
+Route::get('/DetailBook/{ISBN}', [BookController::class, 'detailBook'])->name('Detail Book');
 
 Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 
@@ -40,4 +40,3 @@ Route::get('/EditGenre', [GenreController::class, 'editIndex'])->name('Edit Genr
 Route::delete('/deleteGenre/{id}', [GenreController::class, 'deleteIndex'])->name('deleteGenre.deleteIndex');
 
 Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');
- 
