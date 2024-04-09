@@ -13,9 +13,34 @@ class BookController extends Controller
         return view('AddBook');
     }
 
-    public function editIndex()
+    public function editIndex($ISBN)
     {
-        return view ('EditBook');
+        return view ('EditBook', [
+            $book = Book::where('ISBN','=',$ISBN)->firstOrFail(),
+            'book' => $book,
+            'ISBN' => $ISBN
+        ]);
+    }
+
+    public function update(Request $request, Book $book){
+        $validatedData = $request->validate([
+            'BookTitle' => 'required|max:255',
+            'AuthorName' => 'required'
+        ]);
+
+        $book = Book::where('ISBN', '=', $request->ISBN)->firstOrFail();
+        $book->BookTitle = $request->BookTitle;
+        $book->PublisherName = $request->PublisherName;
+        $book->AuthorName = $request->AuthorName;
+        $book->AuthorAddress = $request->AuthorAddress;
+        $book->PublishDate = $request->PublishDate;
+        $book->BookGenre = $request->BookGenre;
+        $book->BookPrice = $request->BookPrice;
+        $book->BookPage = $request->BookPage;
+        $book->BookPicture = $request->BookPicture;
+        $book->save();
+
+        return back();
     }
 
     public function detailBook($id)
