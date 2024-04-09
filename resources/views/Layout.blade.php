@@ -40,6 +40,9 @@
         </ul>
 
     </nav>
+
+    @yield('PopUpEvent')
+
     @yield('PageContent')
 
     <footer class="footer">

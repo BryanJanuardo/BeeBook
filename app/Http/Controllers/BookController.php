@@ -4,19 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     public function index()
     {
-        return view('AddBook');
+        $genres = Genre::all();
+        return view('AddBook', ['genres' => $genres]);
     }
 
     public function editIndex($ISBN)
     {
+        $genres = Genre::all();
+        $book = Book::where('ISBN','=',$ISBN)->firstOrFail();
+
         return view ('EditBook', [
-            $book = Book::where('ISBN','=',$ISBN)->firstOrFail(),
+            'genres' => $genres,
             'book' => $book,
             'ISBN' => $ISBN
         ]);
@@ -45,7 +50,8 @@ class BookController extends Controller
 
     public function detailBook($ISBN)
     {
-        return view('DetailBook', ['ISBN' => $ISBN]);
+        $book = Book::findOrFail($ISBN);
+        return view('DetailBook', ['book' => $book]);
     }
 
     public function addBook(Request $request)

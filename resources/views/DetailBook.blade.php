@@ -24,14 +24,14 @@
             </div>
 
             <div class="right">
-                <h1 class="title">Psychology of Money</h1>
-                <p class="author"><strong>By</strong> Morgan Housel</p>
+                <h1 class="title">{{$book->BookTitle}}</h1>
+                <p class="author"><strong>By</strong>{{$book->AuthorName}}</p>
                 <h3 class="rating">4.5/10 <img style="width: 16px; height: 16px;" src="{{asset('Asset/Blackstar.png')}}" alt=""></h3>
                 <p class="desc">Timeless lessons on wealth, greed, and happiness</p>
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
                     <button class="read-now">Read Now!</button>
                     <a href=""><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Wishlist.png')}}" alt=""></a>
-                    <a href="{{route('Edit Book', ['ISBN' => $ISBN])}}"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Editpencil.svg')}}" alt=""></a>
+                    <a href="{{route('Edit Book', ['ISBN' => $book->ISBN])}}"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Editpencil.svg')}}" alt=""></a>
                 </div>
             </div>
         </div>
