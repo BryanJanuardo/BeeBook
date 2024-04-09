@@ -32,11 +32,18 @@ class GenreController extends Controller
          $store->save();
          return redirect()->route('Add Book')->with('success','New genre added!');
      }
-    }
 
-    public function editIndex()
+
+    public function editIndex(Request $request, $id)
     {
-        return view ('EditGenre');
+        $validatedData = $request->validate([
+            'GenreName' => 'required'
+        ]);
+
+        $genre = Genre::findOrFail($id);
+        $genre->GenreName = $validatedData['GenreName'];
+        $genre->save();
+        return redirect()->route('Add Book')->with('success','Genre Update Successfully');
     }
 
     public function deleteIndex($id) {
@@ -45,7 +52,8 @@ class GenreController extends Controller
         $genre->delete();
 
         return redirect ('Edit Book');
-
     }
+
+}
 
 

@@ -5,12 +5,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
-<<<<<<< HEAD
 use app\Http\Controllers\TestingHelperController;
 use App\Models\Genre;
-=======
 use App\Models\Book;
->>>>>>> 22a6f5bdb34f8fa2c3d6138528a14d494d59a6b7
 use Illuminate\Support\Facades\Route;
 
 /*

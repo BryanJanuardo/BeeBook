@@ -20,7 +20,7 @@
                 <input placeholder="Genre" id="Genre" name="Genre" type="text"><br><br>
             </div>
             <div class="button-box">
-                <button >Edit Genre</button>
+                <button id="updateButton">Edit Genre</button>
                 <button id="deleteButton">Delete Genre</button>
             </div>
             <br>
@@ -32,14 +32,24 @@
 </body>
 
 <script>
-    
+
     document.getElementById('deleteButton').addEventListener('click', function() {
-    var newAction = "/deleteGenre/" + id; 
+    var newAction = "/deleteGenre/" + id;
     document.getElementById('formGenre').setAttribute('action', newAction);
     document.getElementById('formGenre').submit();
   });
-  
+
 </script>
 
+<script>
+    document.getElementById('updateButton').addEventListener('click', function() {
+        var id = document.getElementById('genreId').value;
+        var newName = document.getElementById('newGenreName').value;
+        var newAction = "/genre/" + id;
+        document.getElementById('formGenre').setAttribute('action', newAction);
+        document.getElementById('GenreName').setAttribute('value', newName);
+        document.getElementById('formGenre').submit();
+    });
+</script>
 
 </html>
