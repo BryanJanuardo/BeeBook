@@ -97,7 +97,9 @@ function validationFormatInput(value) {
 }
 
     function validationValue(newValue) {
-        if (newValue < 0) {
+        if(typeof(newValue) !== 'number'){
+            return "0";
+        }else if (newValue < 0) {
             return "0";
         } else if (newValue > 10) {
             return "10";

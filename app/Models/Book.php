@@ -14,14 +14,18 @@ class Book extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'ISBN',
         'PublisherName',
         'AuthorName',
-        'AuthorAddress',
         'PublishDate',
         'BookTitle',
-        'BookGenre',
         'BookPrice',
         'BookPage',
-        'BookPicture'
+        'BookPicture',
+        'BookFile'
     ];
+
+    public function genres(){
+        return $this->belongsToMany(Genre::class);
+    }
 }
