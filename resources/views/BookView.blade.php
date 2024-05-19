@@ -8,7 +8,7 @@
 </head>
 <body>
     @extends('Layout')
-
+    {{-- Perlu logic embek saved baco pake ISBN --}}
     @section('PageContent')
     <div class="page-container">
         <div class="pdf-header">

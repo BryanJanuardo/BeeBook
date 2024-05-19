@@ -44,7 +44,7 @@
                         <div class="book-content">
                             <h4 class="book-title">{{ $book->BookTitle }}</h4>
                             <p class="book-author">{{ $book->AuthorName }}</p>
-                            <p class="book-price">{{ $book->BookPrice }}</p>
+                            <p class="book-price">Rp. {{ $book->BookPrice }}</p>
                         </div>
                     </button>
                 </form>

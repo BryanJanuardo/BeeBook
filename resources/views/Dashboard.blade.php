@@ -32,18 +32,18 @@
     </div>
 
     <div class="page-content">
-        @for ($i = 0; $i < 12; $i++)
-            <form action="{{route('Detail Book', ['ISBN' => '00630000001'])}}">
+        @foreach ($getAllBook as $book)
+            <form action="{{route('Detail Book', ['ISBN' => $book->ISBN])}}">
                 <button class="book-card">
-                    <img class="book-picture" src="./storage/Book/BookPicture/SCC2.png" alt="">
+                    <img class="book-picture" src="./storage/Book/BookPicture/{{ $book->BookPicture }}" alt="">
                     <div class="book-content">
-                        <h4 class="book-title">Psychology of Money</h4>
-                        <p class="book-author">Morgan Housel</p>
-                        <p class="book-price">Rp. 10.000</p>
+                        <h4 class="book-title">{{ $book->BookTitle }}</h4>
+                        <p class="book-author">{{ $book->AuthorName }}</p>
+                        <p class="book-price">Rp. {{ $book->BookPrice }}</p>
                     </div>
                 </button>
             </form>
-        @endfor
+        @endforeach
     </div>
     @endsection
 

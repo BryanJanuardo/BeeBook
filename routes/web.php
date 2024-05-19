@@ -37,7 +37,7 @@ Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Boo
 
 Route::get('/DetailBook/{ISBN}', [BookController::class, 'detailIndex'])->name('Detail Book');
 Route::get('/EditBook/{ISBN}', [BookController::class, 'editIndex'])->name('Edit Book');
-Route::get('/EditBook/{ISBN}/Post', [BookController::class, 'updateBook'])->name('Update Book');
+Route::patch('/EditBook/{ISBN}/Post', [BookController::class, 'updateBook'])->name('Update Book');
 Route::delete('/DeleteBook/{ISBN}', [BookController::class, 'deleteBook'])->name('Delete Book');
 
 Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');

@@ -100,11 +100,12 @@
                     <h1>Edit / Delete Book</h1>
                 </div>
                 <div class="page-content">
-                    <form class="book-form" id="book-form" action="#">
+                    <form class="book-form" id="book-form" action="#" method="POST">
+                        @csrf
                         <div class="book-content">
                             <div class="input" id="BookTitle">
                                 <label for="ISBN">ISBN:</label>
-                                <input placeholder="ISBN" name="BookISBN" type="text">
+                                <input placeholder="ISBN" name="BookISBN" type="text" required autofocus value="{{ old('BookISBN',$book->ISBN) }}">
                             </div>
                             <div class="input">
                                 <label for="BookTitle">Book Title:</label>
@@ -143,7 +144,7 @@
                             </div>
                             <div class="input">
                                 <label for="BookPicture">Book Picture<Picture> <span> *PDF:</span></Picture></label>
-                                <input id="file" type="file">
+                                <input id="file" type="file" name="BookPicture">
                             </div>
                             <div class="input" id="BookPicture">
                                 <label for="BookPicture">Book File<Picture> <span> *PDF:</span></Picture></label>
