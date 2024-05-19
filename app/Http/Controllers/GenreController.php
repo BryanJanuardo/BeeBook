@@ -13,13 +13,13 @@ class GenreController extends Controller
         return view('AddGenre');
     }
 
-    public function editIndex()
-    {
-        return view ('EditGenre');
+    public function editIndex($id){
+        $genre = Genre::findOrFail($id);
+        return view ('EditGenre')->with('genre', $genre);
     }
 
     public function createGenre(Request $request)
-     {
+    {
         $latestGenre = DB::table('genres')->orderBy('id', 'desc')->first();
         $latestGenreId = '';
 
@@ -35,15 +35,23 @@ class GenreController extends Controller
             'GenreName' => $request->GenreName
         ]);
 
-         return redirect()->route('Add Book');
-     }
+        return redirect()->route('Add Book');
+    }
 
-    public function deleteIndex($id) {
+    public function editGenre(Request $request, $id){
+        $genre = Genre::findOrFail($id);
+        $genre->update([
+            'GenreName' => $request->GenreName,
+        ]);
+
+        return redirect()->route('Add Book');
+    }
+
+    public function deleteGenre($id) {
 
         $genre = Genre::findOrFail($id);
         $genre->delete();
 
-        return redirect ('Edit Book');
-
+        return redirect()->back();
     }
 }

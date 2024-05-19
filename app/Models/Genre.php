@@ -9,8 +9,15 @@ class Genre extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+
     protected $fillable = [
         'id',
         'GenreName'
     ];
+
+    public function books(){
+        return $this->belongsToMany(Book::class);
+    }
 }

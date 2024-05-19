@@ -20,12 +20,12 @@
     @section('PageContent')
         <div class="detail-container">
             <div class="left">
-                <img src="{{asset('Asset/Image.png')}}" class="book">
+                <img src="./storage/Book/BookPicture/{{ $book->BookPicture }}" class="book">
             </div>
 
             <div class="right">
                 <h1 class="title">{{$book->BookTitle}}</h1>
-                <p class="author"><strong>By</strong>{{$book->AuthorName}}</p>
+                <p class="author"><strong>By </strong>{{$book->AuthorName}}</p>
                 <h3 class="rating">4.5/10 <img style="width: 16px; height: 16px;" src="{{asset('Asset/Blackstar.png')}}" alt=""></h3>
                 <p class="desc">Timeless lessons on wealth, greed, and happiness</p>
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
@@ -97,7 +97,9 @@ function validationFormatInput(value) {
 }
 
     function validationValue(newValue) {
-        if (newValue < 0) {
+        if(typeof(newValue) !== 'number'){
+            return "0";
+        }else if (newValue < 0) {
             return "0";
         } else if (newValue > 10) {
             return "10";
