@@ -38,27 +38,26 @@
 
         <hr>
 
-        <form action="">
+        <form action="/submit-feedback" method="POST">
+            @csrf
             <div class="rating-container">
                 <h2>Rating</h2>
                 <div style="position: relative;" class="rating-send">
                     <div class="rating-star"><span style="padding-right: 5px;" class="rating-right">&nbsp; / &nbsp;10.0</span><img draggable="false" style="background-color: #022B3A; width: 16px; height: 16px;" src="{{asset('Asset/Whitestar.png')}}" alt=""></div>
-                    <input id="Ratinginput" value="0.0" type="text" />
+                    <input id="Ratinginput" name="Rating" value="0.0" type="text" />
                     <div class="arrow-box">
                         <img draggable="false" id="Arrowup" src="{{asset('Asset/Arrowup.png')}}" alt="">
                         <img draggable="false" id="Arrowdown" src="{{asset('Asset/Arrowdown.png')}}" alt="">
                     </div>
-                    <button>Send</button>
+                 
                 </div>
             </div>
-        </form>
-
-        <form action="">
+    
             <div class="comment-container">
                 <h2>Comments</h2>
                 <div class="comment-send">
-                    <input type="text" placeholder="Put your comments here..." />
-                    <button>Send</button>
+                    <input type="text" name="Subject" placeholder="Put your comments here..." />
+                    <button type="Submit">Send</button>
                 </div>
             </div>
         </form>

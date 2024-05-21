@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\FeedbackController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +50,5 @@ Route::patch('/editGenre/{id}', [GenreController::class, 'editGenre'])->name('ed
 Route::delete('/deleteGenre/{id}', [GenreController::class, 'deleteGenre'])->name('deleteGenre');
 
 
+
+Route::post('/submit-feedback', [FeedbackController::class, 'store']);
