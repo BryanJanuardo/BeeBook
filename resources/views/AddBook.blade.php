@@ -19,9 +19,14 @@
                 <h1>Add Book</h1>
             </div>
             <div class="page-content">
-                <form class="book-form" action="{{ route('Post Book') }}" method="post">
+                <form class="book-form" action="{{ route('Post Book') }}" method="POST" enctype="multipart/form-data">
+                    @method('POST')
                     @csrf
                     <div class="book-content">
+                        <div class="input" id="BookTitle">
+                            <label for="ISBN">ISBN:</label>
+                            <input placeholder="ISBN" name="BookISBN" type="text">
+                        </div>
                         <div class="input" id="BookTitle">
                             <label for="BookTitle">Book Title:</label>
                             <input placeholder="Book Title" name="BookTitle" type="text">
@@ -32,7 +37,7 @@
                         </div>
                         <div class="input" id="BookPrice">
                             <label for="BookPrice">Price <span> *Optional: </span></label>
-                            <input placeholder="Price" name="BookPrice" type="text">
+                            <input placeholder="Price" value="0" name="BookPrice" type="text">
                         </div>
                         <div class="input" id="BookGenre">
                             <div class="genre">
@@ -40,23 +45,14 @@
                                 <a href="{{ route('Add Genre') }}">Add Genre</a>
                             </div>
                             <div class="genrelist">
-                                <!-- buat ambil request ini $variabel = $request->input('genrelist');
-                                 $variabel akan menampilkan list genre dalam bentuk array -->
-                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
-                                <a href=""><input name="genrelist[]" value="Fiction" type="checkbox">Fiction</a>
+                                @foreach ($genres as $genre)
+                                    <a href="{{route('Edit Genre', ['id' => $genre->id])}}"><input name="genrelist[]" value="{{$genre->GenreName}}" type="checkbox">{{$genre->GenreName}}</a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="input" id="BookAuthor">
                             <label for="AuthorName">Author:</label>
                             <input placeholder="Author" name="AuthorName" type="text">
-                        </div>
-                        <div class="input" id="BookAuthorAddress">
-                            <label for="AuthorAddress">Author Address:</label>
-                            <input placeholder="Author Address" name="AuthorAddress" type="text">
                         </div>
                         <div class="input" id="BookPublisher">
                             <label for="PublisherName">Publisher:</label>
@@ -67,8 +63,12 @@
                             <input name="PublishDate" type="date">
                         </div>
                         <div class="input" id="BookPicture">
-                            <label for="BookPicture">Book Picture<Picture> <span> *PDF:</span></Picture></label>
+                            <label for="BookPicture">Book Picture<Picture> <span> *PNG/JPEG:</span></Picture></label>
                             <input id="file" type="file" name="BookPicture">
+                        </div>
+                        <div class="input" id="BookPicture">
+                            <label for="BookPicture">Book File<Picture> <span> *PDF:</span></Picture></label>
+                            <input id="file" type="file" name="BookFile">
                         </div>
                     </div>
                     <div class="error-message"></div>

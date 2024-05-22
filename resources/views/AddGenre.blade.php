@@ -15,17 +15,13 @@
 
     <div class="form-container">
         <h1>Add Genre</h1>
-        <form action="/AddGenre" method="POST">
+        <form method="POST" action="{{route('Create Genre')}}">
             @csrf
             <div class="input-box">
-
-                <label for="GenreName">Genre:</label>
-                <input placeholder="Name" id="GenreName" name="GenreName" type="text"><br><br>
-
-
-
+                <label for="genre">Genre:</label>
+                <input placeholder="Genre" id="Genre" name="GenreName" type="text"><br><br>
             </div>
-            <button type="submit" >Add Genre</button>
+            <button type="submit">Add Genre</button>
             <br>
         </form>
 

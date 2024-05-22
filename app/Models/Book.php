@@ -9,15 +9,23 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'ISBN';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
+        'ISBN',
         'PublisherName',
         'AuthorName',
-        'AuthorAddress',
         'PublishDate',
         'BookTitle',
-        'BookGenre',
         'BookPrice',
         'BookPage',
-        'BookPicture'
+        'BookPicture',
+        'BookFile'
     ];
+
+    public function genres(){
+        return $this->belongsToMany(Genre::class);
+    }
 }

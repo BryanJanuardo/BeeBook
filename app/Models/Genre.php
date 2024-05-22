@@ -8,10 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Genre extends Model
 {
     use HasFactory;
-    //Take input from AddGenre
-    protected $fillable = ['GenreName'];
-    protected $table = 'genres';
-    public $timestamps = false;
 
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
 
+    protected $fillable = [
+        'id',
+        'GenreName'
+    ];
+
+    public function books(){
+        return $this->belongsToMany(Book::class);
+    }
 }

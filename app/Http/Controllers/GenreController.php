@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book;
 use App\Models\Genre;
-use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GenreController extends Controller
 {
@@ -14,44 +13,46 @@ class GenreController extends Controller
         return view('AddGenre');
      }
 
-     public function NewGenre(Request $request)
-     {
-         $validatedData = $request->validate([
-             'GenreName' => 'required'
-         ]);
-
-         $id = IdGenerator::generate([
-             'table' => 'genres',
-             'field' => 'GenreId',
-             'length' => 5,
-             'prefix' => 'GE'
-         ]);
-         $store = new Genre();
-         $store->GenreId = $id;
-         $store->GenreName = $validatedData['GenreName'];
-         $store->save();
-         return redirect()->route('Add Book')->with('success','New genre added!');
-     }
-
-
-    public function editIndex(Request $request, $id)
-    {
-        $validatedData = $request->validate([
-            'GenreName' => 'required'
-        ]);
-
+    public function editIndex($id){
         $genre = Genre::findOrFail($id);
-        $genre->GenreName = $validatedData['GenreName'];
-        $genre->save();
-        return redirect()->route('Add Book')->with('success','Genre Update Successfully');
+        return view ('EditGenre')->with('genre', $genre);
     }
 
-    public function deleteIndex($id) {
+    public function createGenre(Request $request)
+    {
+        $latestGenre = DB::table('genres')->orderBy('id', 'desc')->first();
+        $latestGenreId = '';
+
+        if($latestGenre == null){
+            $latestGenreId = 'GE-001';
+        }else{
+            $latestGenreId = substr($latestGenre->id, 3);
+            $latestGenreId = 'GE-' . str_pad((int)$latestGenreId + 1, 3, '0', STR_PAD_LEFT);
+        }
+
+        Genre::create([
+            'id' => $latestGenreId,
+            'GenreName' => $request->GenreName
+        ]);
+
+        return redirect()->route('Add Book');
+    }
+
+    public function editGenre(Request $request, $id){
+        $genre = Genre::findOrFail($id);
+        $genre->update([
+            'GenreName' => $request->GenreName,
+        ]);
+
+        return redirect()->route('Add Book');
+    }
+
+    public function deleteGenre($id) {
 
         $genre = Genre::findOrFail($id);
         $genre->delete();
 
-        return redirect ('Edit Book');
+        return redirect()->back();
     }
 
 }
