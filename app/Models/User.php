@@ -19,8 +19,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'roleid',
         'email',
         'password',
+        'BookRedemptionPoints',
+
+
     ];
 
     /**
@@ -42,4 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function roles(){
+        return $this->belongsTo(Role::class);
+        //return $this->belongsTo(Role::class, 'RoleId');
+    }
 }
