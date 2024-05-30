@@ -22,9 +22,13 @@ class Feedback extends Model
         'Rating'
     ];
 
-    public function Feedback(): HasOne
+    public function User()
     {
         return $this->hasOne(User::class, 'UserId');
+    }
+
+    public function Book()
+    {
         return $this->hasOne(Book::class, 'ISBN');
     }
 }
