@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -34,6 +35,13 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($ISBN);
         return view('DetailBook', ['book' => $book]);
+    }
+
+    public function showBook($ISBN)
+    {
+        $book = Book::findOrFail($ISBN);
+        $url = Storage::url('Book/BookFile/'.$book->BookFile);
+        return view('ShowBook')->with('filePath', $url)->with('book', $book);
     }
 
     private function attachAllGenre($book, $genreList){
