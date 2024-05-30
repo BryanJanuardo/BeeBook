@@ -34,7 +34,7 @@
                     </form>
                     <form action="{{route('Add Wishlist', ['ISBN' => $book->ISBN, 'UserId' => 1])}}" method="POST">
                         @csrf
-                        <button><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Wishlist.png')}}" alt=""></button>
+                        <button style="background-color: transparent; border: none;"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Wishlist.png')}}" alt=""></button>
                     </form>
                     <a href="{{route('Edit Book', ['ISBN' => $book->ISBN])}}"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Editpencil.svg')}}" alt=""></a>
                 </div>

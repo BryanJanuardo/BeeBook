@@ -10,7 +10,6 @@ class CreateFeedbackTable extends Migration
     public function up()
     {
         Schema::create('feedback', function (Blueprint $table) {
-            $table->id();
             $table->string('UserId');
             $table->string('ISBN');
             $table->text('Subject');
