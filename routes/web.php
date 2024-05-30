@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\WishlistController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +25,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function() {
-    return view('BookView');
-});
 
 Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 Route::get('/AdminDashboard', [AdminDashboardController::class, 'index'])->name('Admin Dashboard');
@@ -36,8 +34,10 @@ Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
 Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');
 
+Route::get('/ShowBook/{ISBN}', [BookController::class, 'showBook'])->name('Show Book');
 Route::get('/DetailBook/{ISBN}', [BookController::class, 'detailIndex'])->name('Detail Book');
 Route::get('/EditBook/{ISBN}', [BookController::class, 'editIndex'])->name('Edit Book');
+Route::post('/Wishlist/{ISBN}/{UserId}/Post', [WishlistController::class, 'addWishlist'])->name('Add Wishlist');
 Route::patch('/EditBook/{ISBN}/Post', [BookController::class, 'updateBook'])->name('Update Book');
 Route::delete('/DeleteBook/{ISBN}', [BookController::class, 'deleteBook'])->name('Delete Book');
 
