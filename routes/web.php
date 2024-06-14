@@ -7,6 +7,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\QuestTrackerController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -52,3 +53,5 @@ Route::delete('/deleteGenre/{id}', [GenreController::class, 'deleteGenre'])->nam
 
 
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
+
+Route::resource('/QuestTracker', QuestTrackerController::class);
