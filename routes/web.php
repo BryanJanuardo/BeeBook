@@ -7,6 +7,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -50,5 +52,6 @@ Route::patch('/editGenre/{id}', [GenreController::class, 'editGenre'])->name('ed
 Route::delete('/deleteGenre/{id}', [GenreController::class, 'deleteGenre'])->name('deleteGenre');
 
 
-
+Route::get('/Login', [LoginController::class, 'index'])->name('Login');
+Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
