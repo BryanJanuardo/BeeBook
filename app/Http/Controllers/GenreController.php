@@ -20,6 +20,10 @@ class GenreController extends Controller
 
     public function createGenre(Request $request)
     {
+        $validatedData = $request->validate([
+            'GenreName' => 'required|string',
+        ]);
+
         $latestGenre = DB::table('genres')->orderBy('id', 'desc')->first();
         $latestGenreId = '';
 
@@ -32,17 +36,20 @@ class GenreController extends Controller
 
         Genre::create([
             'id' => $latestGenreId,
-            'GenreName' => $request->GenreName
+            'GenreName' => $validatedData['GenreName'],
         ]);
 
         return redirect()->route('Add Book');
     }
 
     public function editGenre(Request $request, $id){
-        $genre = Genre::findOrFail($id);
-        $genre->update([
-            'GenreName' => $request->GenreName,
+        $validatedData = $request->validate([
+            'GenreName' => 'required|string',
         ]);
+
+        $genre = Genre::findOrFail($id);
+
+        $genre->update($validatedData);
 
         return redirect()->route('Add Book');
     }
