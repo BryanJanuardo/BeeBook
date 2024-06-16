@@ -47,6 +47,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
+    public function feedbacks(){
+        return $this->hasMany(Feedback::class, 'UserId');
+
     public function roles(){
         return $this->belongsTo(Role::class);
         //return $this->belongsTo(Role::class, 'RoleId');
@@ -54,5 +58,6 @@ class User extends Authenticatable
 
     public function QuestTracker() {
         return $this->hasMany(QuestTracker::class);
+
     }
 }
