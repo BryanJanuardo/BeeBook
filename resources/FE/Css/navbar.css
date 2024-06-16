@@ -90,13 +90,13 @@ a{
 }
 
 .lang-menu ul{
-    flex-direction: column;
+    list-style: none;
     margin: 0;
     padding: 0;
+    display: none;
     background-color: #fff;
     border: 1px solid #f8f8f8;
     box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
-    display: none;
     position: absolute;
 }
 
@@ -114,8 +114,6 @@ a{
     height: 32px;
     vertical-align: middle;
     margin-right: 10px;
-    background-image: url('../Assets/united-states.png');
-    background-size: cover;
 }
 
 .lang-menu ul li a:hover{
