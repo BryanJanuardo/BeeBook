@@ -40,7 +40,7 @@
             @foreach ($getAllBook as $book)
                 <form action="{{route('Detail Book', ['ISBN' => $book->ISBN])}}">
                     <button class="book-card">
-                        <img class="book-picture" src="./storage/Book/BookPicture/{{ $book->BookPicture }}" alt="">
+                        <img class="book-picture" src="../storage/Book/BookPicture/images.jpeg" alt="">
                         <div class="book-content">
                             <h4 class="book-title">{{ $book->BookTitle }}</h4>
                             <p class="book-author">{{ $book->AuthorName }}</p>

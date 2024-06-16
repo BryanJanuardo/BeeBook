@@ -13,12 +13,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('book_genre', function (Blueprint $table) {
-            $table->id();
             $table->string('genre_id');
             $table->string('book_ISBN');
             $table->foreign('genre_id')->references('id')->on('genres')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('book_ISBN')->references('ISBN')->on('books')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
         });
     }
 
