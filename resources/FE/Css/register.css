@@ -41,8 +41,7 @@ body {
     padding-bottom: 50px;
 }
 
-.login-section h2,
-.signup-section h2 {
+.login-section h2, .signup-section h2 {
     font-weight: bold;  
     margin: 0;
 }
@@ -64,9 +63,8 @@ body {
 
 .signup-section {
     background-color: #E1E5F2;
-        justify-content: flex-start; /* Aligns items to the start of the section */
-        padding-top: 25vh; 
-        /* Adds top padding to push the content down */
+    justify-content: flex-start; /* Aligns items to the start of the section */
+    padding-top: 25vh; 
 }
 
 
@@ -91,12 +89,9 @@ p {
     background-color: #022B3A;
     color: #E1E5F2;
     margin-top: 50px;
-    /* padding-top: 100px; */
-
 }
 
-.signup-button, 
-.login-button {
+.signup-button, .login-button {
     padding: 0.5em 1.5em;
     border: none;
     border-radius: 30px;

@@ -51,4 +51,8 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
         //return $this->belongsTo(Role::class, 'RoleId');
     }
+
+    public function QuestTracker() {
+        return $this->hasMany(QuestTracker::class);
+    }
 }

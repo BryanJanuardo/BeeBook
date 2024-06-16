@@ -8,6 +8,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\QuestTrackerController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
@@ -50,8 +51,11 @@ Route::get('/editGenre/{id}', [GenreController::class, 'editIndex'])->name('Edit
 
 Route::patch('/editGenre/{id}', [GenreController::class, 'editGenre'])->name('editGenre');
 Route::delete('/deleteGenre/{id}', [GenreController::class, 'deleteGenre'])->name('deleteGenre');
+Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 
 
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
+
+Route::resource('/QuestTracker', QuestTrackerController::class);
