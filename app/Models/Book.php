@@ -25,12 +25,12 @@ class Book extends Model
         'BookFile'
     ];
 
-    public function Genre()
+    public function genres()
     {
         return $this->belongsToMany(Genre::class);
     }
 
-    public function Feedback()
+    public function feedbacks()
     {
         return $this->hasMany(Feedback::class, 'ISBN');
     }
