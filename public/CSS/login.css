@@ -20,8 +20,8 @@ body {
     height: 100vh;
 }
 
-.login-section, 
-.signup-section 
+.signup-section, 
+.signin-section 
 {
     flex: 1;
     display: flex;
@@ -30,42 +30,40 @@ body {
     align-items: center;
 }
 
-.signup-section h2 {
+.signin-section h2 {
     padding-bottom: 60px;
     color: #022B3A;
     font-size: 4.375rem;
 }
 
-.login-section h2 {
+.signup-section h2 {
     font-size: 3.125rem;
     padding-bottom: 50px;
 }
 
-.login-section h2, .signup-section h2 {
-
+.signup-section h2,
+.signin-section h2 {
     font-weight: bold;  
     margin: 0;
 }
 
-.login-section {
+.signup-section {
     background-color: #022B3A;
     color: #E1E5F2;
     text-align: center;
 }
 
-.login-section p {
+.signup-section p {
     margin-bottom: 50px;
 }
 
-.login-section button {
+.signup-section button {
     background-color: #E1E5F2;
     color: #022B3A;
 }
 
-.signup-section {
+.signin-section {
     background-color: #E1E5F2;
-    justify-content: flex-start; /* Aligns items to the start of the section */
-    padding-top: 25vh; 
 }
 
 
@@ -86,13 +84,16 @@ p {
     height: 27.5px;
 }
 
-.signup-button {
+.signin-button {
     background-color: #022B3A;
     color: #E1E5F2;
     margin-top: 50px;
+    /* padding-top: 100px; */
+
 }
 
-.signup-button, .login-button {
+.signin-button, 
+.signup-button {
     padding: 0.5em 1.5em;
     border: none;
     border-radius: 30px;
@@ -102,11 +103,11 @@ p {
     font-size: 1.5625rem
 }
 
-.signup-button:hover {
+.signin-button:hover {
     background-color: #055272;
 }
 
-.login-button:hover {
+.signup-button:hover {
     background-color: #fff;
 }
 
@@ -118,6 +119,6 @@ form {
 }
 
 form .input-field, 
-form .signup-button {
+form .signin-button {
     max-width: 300px; /* Optional: Limit the width of the input fields and button */
 }
