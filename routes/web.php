@@ -7,6 +7,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\QuestTrackerController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +55,5 @@ Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 
 
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
+
+Route::resource('/QuestTracker', QuestTrackerController::class);
