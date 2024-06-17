@@ -19,8 +19,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'roleid',
         'email',
         'password',
+        'BookRedemptionPoints',
+
+
     ];
 
     /**
@@ -42,4 +46,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function feedbacks(){
+        return $this->hasMany(Feedback::class, 'UserId');
+
+    public function roles(){
+        return $this->belongsTo(Role::class);
+        //return $this->belongsTo(Role::class, 'RoleId');
+    }
+
+    public function QuestTracker() {
+        return $this->hasMany(QuestTracker::class);
+
+    }
 }

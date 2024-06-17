@@ -20,7 +20,7 @@
     @section('PageContent')
         <div class="detail-container">
             <div class="left">
-                <img src="./storage/Book/BookPicture/{{ $book->BookPicture }}" class="book">
+                <img src="../storage/Book/BookPicture/images.jpeg" class="book">
             </div>
 
             <div class="right">
@@ -29,8 +29,13 @@
                 <h3 class="rating">4.5/10 <img style="width: 16px; height: 16px;" src="{{asset('Asset/Blackstar.png')}}" alt=""></h3>
                 <p class="desc">Timeless lessons on wealth, greed, and happiness</p>
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
-                    <button class="read-now">Read Now!</button>
-                    <a href=""><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Wishlist.png')}}" alt=""></a>
+                    <form action="{{route('Show Book', ['ISBN' => $book->ISBN])}}">
+                        <button class="read-now">Read Now!</button>
+                    </form>
+                    <form action="{{route('Add Wishlist', ['ISBN' => $book->ISBN, 'UserId' => 1])}}" method="POST">
+                        @csrf
+                        <button style="background-color: transparent; border: none;"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Wishlist.png')}}" alt=""></button>
+                    </form>
                     <a href="{{route('Edit Book', ['ISBN' => $book->ISBN])}}"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Editpencil.svg')}}" alt=""></a>
                 </div>
             </div>
@@ -49,10 +54,10 @@
                         <img draggable="false" id="Arrowup" src="{{asset('Asset/Arrowup.png')}}" alt="">
                         <img draggable="false" id="Arrowdown" src="{{asset('Asset/Arrowdown.png')}}" alt="">
                     </div>
-                 
+
                 </div>
             </div>
-    
+
             <div class="comment-container">
                 <h2>Comments</h2>
                 <div class="comment-send">
@@ -78,7 +83,7 @@
     <script>
 
 function validationFormatInput(value) {
-            if (value !== "") {
+    if (value !== "") {
         // Parse the input value
         let parsedValue = parseFloat(value);
 
@@ -96,9 +101,7 @@ function validationFormatInput(value) {
 }
 
     function validationValue(newValue) {
-        if(typeof(newValue) !== 'number'){
-            return "0";
-        }else if (newValue < 0) {
+        if (newValue < 0) {
             return "0";
         } else if (newValue > 10) {
             return "10";

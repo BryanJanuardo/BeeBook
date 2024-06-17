@@ -32,7 +32,7 @@ class BookSeeder extends Seeder
             'BookTitle' => 'Learning Laravel',
             'BookPrice' => '25.99',
             'BookPage' => '400',
-            'BookPicture' => 'laravel.jpg',
+            'BookPicture' => 'laravel.jpeg',
             'BookFile' => 'learning_laravel.pdf'
         ]);
         $this->attachGenre($book);

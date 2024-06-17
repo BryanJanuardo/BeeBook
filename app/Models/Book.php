@@ -25,7 +25,13 @@ class Book extends Model
         'BookFile'
     ];
 
-    public function genres(){
+    public function genres()
+    {
         return $this->belongsToMany(Genre::class);
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class, 'ISBN');
     }
 }
