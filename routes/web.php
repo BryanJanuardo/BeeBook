@@ -6,14 +6,10 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
-<<<<<<< HEAD
-use App\Http\Controllers\TransactionController;
-=======
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QuestTrackerController;
 use App\Http\Controllers\RegisterController;
->>>>>>> 90e33ca39e027d7aee5213ca4fe379afb91da281
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -61,9 +57,5 @@ Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
-<<<<<<< HEAD
-Route::get('/test/{ISBN}/{UserIdD}', [TransactionController::class, 'test']);
-=======
 
 Route::resource('/QuestTracker', QuestTrackerController::class);
->>>>>>> 90e33ca39e027d7aee5213ca4fe379afb91da281
