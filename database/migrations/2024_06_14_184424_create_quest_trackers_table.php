@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('UserID');
             $table->integer('QuestProgress')->default(0);
 
-            $table->foreign('UserID')->references('UserID')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });
