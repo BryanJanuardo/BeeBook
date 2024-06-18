@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\WishlistController;
@@ -48,7 +49,7 @@ Route::patch('/EditBook/{ISBN}/Post', [BookController::class, 'updateBook'])->na
 Route::delete('/DeleteBook/{ISBN}', [BookController::class, 'deleteBook'])->name('Delete Book');
 
 Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
-Route::post('/createGenre' , [GenreController::class, 'createGenre'])->name('Create Genre');
+Route::post('/createGenre', [GenreController::class, 'createGenre'])->name('Create Genre');
 
 Route::get('/editGenre/{id}', [GenreController::class, 'editIndex'])->name('Edit Genre');
 
@@ -60,3 +61,6 @@ Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
+
+
+Route::get('/PointExchange', [ExchangeController::class, 'index'])->name('PointExchange');

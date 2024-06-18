@@ -1,40 +1,103 @@
-.page-header{
+body{
+    overflow: hidden;
+}
+
+.page-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     margin-top: min(8vh, 60px);
     margin-left: min(6vh, 65px);
     margin-right: min(6vh, 65px);
+
 }
 
-.page-header .genre-list{
+.page-header .genre-list {
     display: flex;
-
-    padding: 50px 0px 0px 0px;
 }
 
-.page-header .genre-list .genre-content{
-    width: min(20vh, 150px);
+.page-header .genre-list .genre-content {
+    width: 20vh;
     height: min(10vh, 30px);
-
     margin: 0;
     padding: 0;
 
     background-color: white;
 }
 
-.page-header .search-box{
+.page-header .search-box {
     width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-.page-header .search-box input{
+.page-header .search-box input {
     height: min(10vh, 28px);
     width: min(60vh, 300px);
-
     padding: 0 0 0 20px;
-
     background-color: white;
+    border: none;
+    outline: none;
+}
+
+.filter-menu {
+    position: relative;
+    margin-left: 10px;
+}
+
+.filter-icon {
+    cursor: pointer;
+    width: 20px;
+    position: relative;
+}
+
+.filter-dropdown {
+    display: none;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 10;
+}
+
+.filter-dropdown li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    list-style: none;
+}
+
+.filter-dropdown li:hover {
+    background-color: #f2f2f2;
+}
+
+.filter-dropdown label {
+    display: block;
+    color: black;
+}
+
+.page-header .search-box .filter-menu .filter-dropdown li .left{
+    width: 30%;
+}
+
+.page-header .search-box .filter-menu .filter-dropdown li .right {
+    width: 70%;
+  }
+
+.filter-dropdown label:hover {
+    background-color: #f2f2f2;
+}
+
+.filter-menu:hover .filter-dropdown {
+    display: flex;
 }
 
 .page-content{
