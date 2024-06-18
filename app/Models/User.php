@@ -54,6 +54,10 @@ class User extends Authenticatable
         //return $this->belongsTo(Role::class, 'RoleId');
     }
 
+    public function transactions(){
+        return $this->hasMany(Transaction::class, 'UserId');
+    }
+
     public function questTracker() {
         return $this->hasMany(QuestTracker::class);
     }

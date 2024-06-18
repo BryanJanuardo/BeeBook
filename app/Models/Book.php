@@ -34,4 +34,12 @@ class Book extends Model
     {
         return $this->hasMany(Feedback::class, 'ISBN');
     }
+
+    public function transactions(){
+        return $this->hasMany(Transaction::class, 'ISBN');
+    }
+
+    public function userlibrary(){
+        return $this->hasMany(UserLibrary::class, 'ISBN');
+    }
 }

@@ -14,4 +14,12 @@ class UserLibrary extends Model
         'UserID',
         'ReadProgress'
     ];
+
+    public function users(){
+        return $this->hasOne(User::class, 'UserId');
+    }
+
+    public function books(){
+        return $this->hasOne(Book::class, 'ISBN');
+    }
 }

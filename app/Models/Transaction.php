@@ -14,4 +14,13 @@ class Transaction extends Model
         'UserId',
         'TransactionDate'
     ];
+
+    public function users()
+    {
+        return $this->hasOne(User::class, 'UserId');
+    }
+
+    public function books(){
+        return $this->hasOne(Book::class, 'ISBN');
+    }
 }
