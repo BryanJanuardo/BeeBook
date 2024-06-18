@@ -39,8 +39,9 @@ Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
 Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');
 
 Route::get('/ShowBook/{ISBN}/{page}', [BookController::class, 'showBook'])->name('Show Book');
-Route::get('/ShowBook/{ISBN}/{page}/increment', [BookController::class, 'showBook'])->name('Increase Book Page');
-Route::get('/ShowBook/{ISBN}/{page}/decrement', [BookController::class, 'showBook'])->name('Decrease Book Page');
+Route::post('/ShowBook/{ISBN}/{page}/increment', [BookController::class, 'incrementPage'])->name('Increase Book Page');
+Route::post('/ShowBook/{ISBN}/{page}/decrement', [BookController::class, 'decrementPage'])->name('Decrease Book Page');
+
 Route::get('/DetailBook/{ISBN}', [BookController::class, 'detailIndex'])->name('Detail Book');
 Route::get('/EditBook/{ISBN}', [BookController::class, 'editIndex'])->name('Edit Book');
 Route::post('/Wishlist/{ISBN}/{UserId}/Post', [WishlistController::class, 'addWishlist'])->name('Add Wishlist');
