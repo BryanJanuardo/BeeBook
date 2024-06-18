@@ -21,7 +21,8 @@
         <div class="page-header">
             <form action="">
                 <div>
-                    <div style="display: flex;"><a href="{{ route('Add Book') }}" class="link" id="admin-button">Add Book</a></div>
+                    <div style="display: flex;"><a href="{{ route('Add Book') }}" class="link" id="admin-button">Add
+                            Book</a></div>
                 </div>
                 <div class="genre-list">
                     <button id="all-genre-content" class="genre-content">All</button>
@@ -31,14 +32,31 @@
             </form>
             <div>
                 <form class="search-box" action="">
-                    <input placeholder="Search" type="text">
+                    <input class="search" placeholder="Search" type="text">
+                    <div class="filter-menu">
+                        <img src="../storage/others/filter.png" class="filter-icon">
+                        <ul class="filter-dropdown">
+                            <li>
+                                <input class="left" type="checkbox" name="genre" id="action">
+                                <label class="right" for="action"> Action</label>
+                            </li>
+                            <li>
+                                <input class="left" type="checkbox" name="genre" id="comedy">
+                                <label class="right" for="comedy"> Comedy</label>
+                            </li>
+                            <li>
+                                <input class="left" type="checkbox" name="genre" id="horror">
+                                <label class="right" for="horror"> Horror</label>
+                            </li>
+                        </ul>
+                    </div>
                 </form>
             </div>
         </div>
 
         <div class="page-content">
             @foreach ($getAllBook as $book)
-                <form action="{{route('Detail Book', ['ISBN' => $book->ISBN])}}">
+                <form action="{{ route('Detail Book', ['ISBN' => $book->ISBN]) }}">
                     <button class="book-card">
                         <img class="book-picture" src="../storage/Book/BookPicture/images.jpeg" alt="">
                         <div class="book-content">
