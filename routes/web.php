@@ -10,6 +10,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QuestTrackerController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserLibraryController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +38,9 @@ Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 Route::get('/AddBook', [BookController::class, 'index'])->name('Add Book');
 Route::post('/AddBook/post', [BookController::class, 'addBook'])->name('Post Book');
 
-Route::get('/ShowBook/{ISBN}', [BookController::class, 'showBook'])->name('Show Book');
+Route::get('/ShowBook/{ISBN}/{page}', [BookController::class, 'showBook'])->name('Show Book');
+Route::get('/ShowBook/{ISBN}/{page}/increment', [BookController::class, 'showBook'])->name('Increase Book Page');
+Route::get('/ShowBook/{ISBN}/{page}/decrement', [BookController::class, 'showBook'])->name('Decrease Book Page');
 Route::get('/DetailBook/{ISBN}', [BookController::class, 'detailIndex'])->name('Detail Book');
 Route::get('/EditBook/{ISBN}', [BookController::class, 'editIndex'])->name('Edit Book');
 Route::post('/Wishlist/{ISBN}/{UserId}/Post', [WishlistController::class, 'addWishlist'])->name('Add Wishlist');
@@ -57,5 +60,3 @@ Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
-
-Route::resource('/QuestTracker', QuestTrackerController::class);

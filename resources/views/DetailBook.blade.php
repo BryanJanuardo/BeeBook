@@ -29,7 +29,7 @@
                 <h3 class="rating">4.5/10 <img style="width: 16px; height: 16px;" src="{{asset('Asset/Blackstar.png')}}" alt=""></h3>
                 <p class="desc">Timeless lessons on wealth, greed, and happiness</p>
                 <div style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
-                    <form action="{{route('Show Book', ['ISBN' => $book->ISBN])}}">
+                    <form action="{{route('Show Book', ['ISBN' => $book->ISBN, 'page' => 1])}}">
                         <button class="read-now">Read Now!</button>
                     </form>
                     <form action="{{route('Add Wishlist', ['ISBN' => $book->ISBN, 'UserId' => 1])}}" method="POST">
