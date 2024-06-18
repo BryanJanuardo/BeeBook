@@ -31,7 +31,8 @@
             const pdfjsLib = window['pdfjs-dist/build/pdf'];
             console.log(url)
             let pdfDoc = null;
-            let pageNum = 1;
+            // pageNum buat ambil pageNum dari database
+            let pageNum = {!! json_encode($page) !!};
             let pageIsRendering = false;
             let pageNumIsPending = null;
 
@@ -39,27 +40,21 @@
             const canvas = document.querySelector('#pdf-render');
             const ctx = canvas.getContext('2d');
 
-
-            // Fetch the PDF
             pdfjsLib.getDocument(url).promise
             .then(pdfDoc_ => {
                 pdfDoc = pdfDoc_;
                 const storedPage = localStorage.getItem('lastPageRead');
-                // pageNum buat ambil pageNum dari database
-                pageNum = 1;
+
                 renderPage(pageNum);
                 document.querySelector('#max-page-num').textContent = pdfDoc.numPages;
             })
             .catch(error => {
                 console.error('Error loading PDF:', error);
-                // Handle error: display an error message to the user or perform some fallback action
             });
 
             // Render the page
             const renderPage = num => {
                 pageIsRendering = true;
-
-                // Get page
                 pdfDoc.getPage(num).then(page => {
                     const viewport = page.getViewport({ scale });
                     canvas.height = viewport.height;
@@ -78,22 +73,10 @@
                             pageNumIsPending = null;
                         }
                     });
-
-                    // Store the last page read in local storage
-                    localStorage.setItem('lastPageRead', num);
                 });
                 document.querySelector('#page-num').textContent = num;
             };
 
-            // Check for pages rendering
-            const queueRenderPage = num => {
-                if (pageIsRendering) {
-                    pageNumIsPending = num;
-                } else {
-                    console.log(num)
-                    renderPage(num);
-                }
-            };
 
             // Show Prev Page
             const showPrevPage = () => {

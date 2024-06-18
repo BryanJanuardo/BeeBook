@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('quest_trackers', function (Blueprint $table) {
             $table->id('TrackerID');
-            $table->timestamps('QuestCompletedDate')->nullable();
+            $table->date('QuestCompletedDate')->nullable();
             $table->boolean('QuestAvailable');
             $table->unsignedBigInteger('UserID');
             $table->integer('QuestProgress')->default(0);
 
-            $table->foreign('UserID')->references('UserID')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

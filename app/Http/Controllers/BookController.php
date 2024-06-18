@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,11 +38,35 @@ class BookController extends Controller
         return view('DetailBook', ['book' => $book]);
     }
 
-    public function showBook($ISBN)
+    public function showBook($ISBN, $page)
     {
         $book = Book::findOrFail($ISBN);
         $url = Storage::url('Book/BookFile/' . $book->BookFile);
-        return view('ShowBook')->with('filePath', $url)->with('book', $book);
+        $user = Auth::user();
+
+        if($user) $page = UserLibraryController::getPageByUserId($user->userID);
+
+        return view('ShowBook')->with([
+            'filePath', $url,
+            'book' => $book,
+            'page' => $page
+        ]);
+    }
+
+    public function incrementPage($ISBN, $page){
+        $book = Book::findOrFail($ISBN);
+        $user = Auth::user();
+        if($user) UserLibraryController::updateBookProgress($ISBN, $page + 1);
+
+        return redirect()->route('Show Book', ['ISBN' => $ISBN, 'page' => $page + 1]);
+    }
+
+    public function decrementPage($ISBN, $page){
+        $book = Book::findOrFail($ISBN);
+        $user = Auth::user();
+        if($user) UserLibraryController::updateBookProgress($ISBN, $page - 1);
+
+        return redirect()->route('Show Book', ['ISBN' => $ISBN, 'page' => $page - 1]);
     }
 
     private function attachAllGenre($book, $genreList)
@@ -52,26 +77,24 @@ class BookController extends Controller
         }
     }
 
-    private function getLatestBook()
-    {
-        $latestBook = DB::table('books')->orderBy('ISBN', 'desc')->first();
-        $latestBookISBN = '';
-
-        if ($latestBook == null) {
-            $latestBookISBN = '0000000000001';
-        } else {
-            $latestBookISBN = $latestBook->ISBN;
-            $latestBookISBN = str_pad((int) $latestBookISBN + 1, 13, '0', STR_PAD_LEFT);
-        }
-
-        return $latestBookISBN;
-    }
-
     public function addBook(Request $request)
     {
         if (Book::where('ISBN', '=', $request->BookISBN)->exists()) {
             return redirect()->route('Add Book');
         }
+
+        $request->validate([
+            'ISBN' => 'required|string|unique:books',
+            'PublisherName' => 'required|string',
+            'AuthorName' => 'required|string',
+            'PublishDate' => 'required|date',
+            'BookTitle' => 'required|string',
+            'BookPrice' => 'required|numeric',
+            'BookPage' => 'required|integer',
+            'BookFile' => 'nullable|file|mimes:pdf,doc,docx',
+            'BookPicture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'genrelist' => 'required|array|min:1'
+        ]);
 
         $extension = $request->file('BookPicture')->getClientOriginalExtension();
         $BookPicture = $request->BookTitle . '.' . $extension;
@@ -83,15 +106,15 @@ class BookController extends Controller
 
         // tambah validasi buat insert --> insert + validasi
         $book = Book::create([
-            'ISBN' => 'required|string|unique:books',
-            'PublisherName' => 'required|string',
-            'AuthorName' => 'required|string',
-            'PublishDate' => 'required|date',
-            'BookTitle' => 'required|string',
-            'BookPrice' => 'required|numeric',
-            'BookPage' => 'required|integer',
-            'BookFile' => 'nullable|file|mimes:pdf,doc,docx',
-            'BookPicture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'ISBN' => $request->ISBN,
+            'PublisherName' => $request->PublisherName,
+            'AuthorName' => $request->AuthorName,
+            'PublishDate' => $request->PublishDate,
+            'BookTitle' => $request->BookTitle,
+            'BookPrice' => $request->BookPrice,
+            'BookPage' => $request->BookPage,
+            'BookFile' => $BookFile,
+            'BookPicture' => $BookPicture
         ]);
 
         $this->attachAllGenre($book, $request->genrelist);
@@ -102,6 +125,10 @@ class BookController extends Controller
     // tambah validasi buat update --> update + validasi
     public function updateBook(Request $request, Book $book)
     {
+        if (Book::where('ISBN', '=', $request->BookISBN)->exists()) {
+            return redirect()->route('Add Book');
+        }
+
         $validatedData = $request->validate([
             'BookTitle' => 'required|max:255',
             'PublisherName' => 'required|string',
@@ -113,17 +140,13 @@ class BookController extends Controller
             'BookPicture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        if (Book::where('ISBN', '=', $request->BookISBN)->exists()) {
-            return redirect()->route('Add Book');
-        }
-
         if ($request->hasFile('BookPicture')) {
             $extension = $request->file('BookPicture')->getClientOriginalExtension();
             $BookPicture = $validatedData['BookTitle'] . '.' . $extension;
             $request->file('BookPicture')->storeAs('public/Book/BookPicture', $BookPicture);
             $validatedData['BookPicture'] = $BookPicture;
         }
-    
+
         if ($request->hasFile('BookFile')) {
             $extension = $request->file('BookFile')->getClientOriginalExtension();
             $BookFile = $validatedData['BookTitle'] . '.' . $extension;
@@ -136,7 +159,7 @@ class BookController extends Controller
         $this->attachAllGenre($book, $request->genrelist);
 
         $book->update($validatedData);
-
+        $book->save();
         return back();
     }
 

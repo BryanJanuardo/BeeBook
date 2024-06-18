@@ -23,8 +23,6 @@ class User extends Authenticatable
         'email',
         'password',
         'BookRedemptionPoints',
-
-
     ];
 
     /**
@@ -50,14 +48,17 @@ class User extends Authenticatable
 
     public function feedbacks(){
         return $this->hasMany(Feedback::class, 'UserId');
-
+    }
     public function roles(){
         return $this->belongsTo(Role::class);
         //return $this->belongsTo(Role::class, 'RoleId');
     }
 
-    public function QuestTracker() {
+    public function questTracker() {
         return $this->hasMany(QuestTracker::class);
+    }
 
+    public function userLibrary() {
+        return $this->hasMany(UserLibrary::class);
     }
 }
