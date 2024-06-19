@@ -55,10 +55,6 @@
                     pdfDoc = pdfDoc_;
                     document.querySelector('#max-page-num').textContent = pdfDoc.numPages;
 
-                    // Validate initial page number
-                    // if (pageNum < 1 || pageNum > pdfDoc.numPages) {
-                    //     pageNum = 1;
-                    // }
                     let url;
                     if(pageNum < 1){
                         url = `{{ route('Show Book', ['ISBN' => $book->ISBN, 'page' => 1])}}`
@@ -107,7 +103,7 @@
 
             document.getElementById("prev").addEventListener('click', function(event) {
                 event.preventDefault();
-                if (pageNum - 1 <= 1) {
+                if (pageNum - 1 < 1) {
                     return;
                 }
                 document.getElementById("formPrev").submit();
