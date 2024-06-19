@@ -60,4 +60,4 @@ Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
-Route::post('/submit-feedback', [FeedbackController::class, 'store']);
+Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);

@@ -7,20 +7,21 @@ use App\Models\Feedback;
 
 class FeedbackController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, $ISBN)
     {
-        // Validasi data yang diterima
-       
         Feedback::create([
             'UserId' => "12345",
-            'ISBN' => "12345",
+            'ISBN' => $ISBN,
             'Subject' => $request->Subject,
             'Rating' => $request->Rating
         ]);
-      
 
-
-        // Kembalikan respon sukses
         return redirect()->route('Dashboard');
+    }
+
+    public static function getAllFeedbackWithISBN($ISBN)
+    {
+        $feedbacks = Feedback::where('ISBN', $ISBN)->with('user')->get();
+        return $feedbacks;
     }
 }
