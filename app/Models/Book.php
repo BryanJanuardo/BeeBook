@@ -34,4 +34,9 @@ class Book extends Model
     {
         return $this->hasMany(Feedback::class, 'ISBN');
     }
+
+    public function wishList()
+    {
+        return $this->hasMany(WishList::class, 'ISBN', 'ISBN');
+    }
 }
