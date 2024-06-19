@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF Viewer</title>
     <link rel="stylesheet" href="{{ asset('CSS/bookview.css') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     @extends('Layout')
@@ -48,7 +47,8 @@
             const scale = 1.5;
             const canvas = document.querySelector('#pdf-render');
             const ctx = canvas.getContext('2d');
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            console.log(pageNum);
 
             pdfjsLib.getDocument(url).promise
                 .then(pdfDoc_ => {
@@ -56,9 +56,18 @@
                     document.querySelector('#max-page-num').textContent = pdfDoc.numPages;
 
                     // Validate initial page number
-                    if (pageNum < 1 || pageNum > pdfDoc.numPages) {
-                        pageNum = 1;
+                    // if (pageNum < 1 || pageNum > pdfDoc.numPages) {
+                    //     pageNum = 1;
+                    // }
+                    let url;
+                    if(pageNum < 1){
+                        url = `{{ route('Show Book', ['ISBN' => $book->ISBN, 'page' => 1])}}`
+                        window.location.href = url
+                    }else if(pageNum > pdfDoc.numPages){
+                        url = `{{ route('Show Book', ['ISBN' => $book->ISBN, 'page' => 20])}}`.replace('20', pdfDoc.numPages);
+                        window.location.href = url
                     }
+
                     renderPage(pageNum);
                 })
                 .catch(error => {
@@ -98,7 +107,7 @@
 
             document.getElementById("prev").addEventListener('click', function(event) {
                 event.preventDefault();
-                if (pageNum <= 1) {
+                if (pageNum - 1 <= 1) {
                     return;
                 }
                 document.getElementById("formPrev").submit();
@@ -106,7 +115,7 @@
 
             document.getElementById("next").addEventListener('click', function(event) {
                 event.preventDefault();
-                if (pageNum >= pdfDoc.numPages) {
+                if (pageNum + 1 > pdfDoc.numPages) {
                     return;
                 }
                 document.getElementById("formNext").submit();
