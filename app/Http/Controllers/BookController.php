@@ -47,7 +47,7 @@ class BookController extends Controller
         if($user) $page = UserLibraryController::getPageByUserId($user->userID);
 
         return view('ShowBook')->with([
-            'filePath', $url,
+            'filePath' => $url,
             'book' => $book,
             'page' => $page
         ]);
@@ -64,7 +64,7 @@ class BookController extends Controller
     public function decrementPage($ISBN, $page){
         $book = Book::findOrFail($ISBN);
         $user = Auth::user();
-        if($user) UserLibraryController::updateBookProgress($ISBN, $page - 1);
+        if($user) UserLibraryController::updateBookProgress($ISBN, $page);
 
         return redirect()->route('Show Book', ['ISBN' => $ISBN, 'page' => $page - 1]);
     }
