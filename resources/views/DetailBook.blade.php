@@ -43,7 +43,7 @@
 
         <hr>
 
-        <form action="/submit-feedback" method="POST">
+        <form action="/submit-feedback/{{$book->ISBN}}" method="POST">
             @csrf
             <div class="rating-container">
                 <h2>Rating</h2>
@@ -67,18 +67,20 @@
             </div>
         </form>
 
+        @foreach ($feedbacks as $feedback)
         <div class="cards">
             <div class= "card">
                 <div style="display: flex; gap: 20px; align-items: center;">
-                    <h3 style="padding: 0%; margin: 0;">Budi</h3>
+                    <h3 style="padding: 0%; margin: 0;">{{ $feedback->user->name }}</h3>
                     <div style="width: 100px; display: flex; ">
-                        <span>10.0</span>
+                        <span>{{ $feedback->Rating }}</span>
                         <span style="display: flex; align-items: center; gap: 6px;">&nbsp;/ 10.0 <img draggable="false" style="width: 14px; height: 12px;" src="{{asset('Asset/Whitestar.png')}}" alt=""></span>
                     </div>
                 </div>
-                <p>Bukunya kerenn, udah pernah beli bukunya tapi yang versi bahasa jawa</p>
+                <p>{{ $feedback->Subject }}</p>
             </div>
         </div>
+        @endforeach
 
     <script>
 

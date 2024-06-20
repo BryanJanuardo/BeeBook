@@ -15,7 +15,7 @@ a{
 .navbar{
     background-color: #022B3A;
     color: #E1E5F2;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
 
@@ -50,6 +50,19 @@ a{
 
 .link{
     font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.link li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white
 }
 
 .coin{
@@ -62,8 +75,6 @@ a{
 }
 
 .lang-menu{
-    margin-top:25px;
-    margin-right: 25px;
     position: relative;
 }
 
@@ -97,6 +108,7 @@ a{
     border: 1px solid #f8f8f8;
     box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
     display: none;
+    top: 60px;
     position: absolute;
 }
 
@@ -132,5 +144,149 @@ a{
 }
 
 .lang-menu:hover ul{
+    display: block;
+}
+
+.lang-menu{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.lang-menu ul li{
+    display: flex;
+}
+
+.selected-lang{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+    width: 100px;
+    margin-right: 25px;
+}
+
+.selected-lang::before{
+    content:'';
+    display:block;
+    width: 32px;
+    height: 32px;
+    background-image: url('/Asset/united-states.png');
+    background-size: cover;
+}
+
+.lang-menu ul{
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    display: none;
+    top: 60px;
+    position: absolute;
+}
+
+.lang-menu ul li a{
+    width: 125px;
+    display: block;
+    padding: 5px 10px;
+    color:black;
+}
+
+.lang-menu ul li a::before{
+    content:'';
+    display:inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    margin-right: 10px;
+    background-image: url('/Asset/united-states.png');
+}
+
+.lang-menu ul li a:hover{
+   background-color: #f2f2f2;
+}
+
+.id::before{
+    background-image: url('/Asset/united-states.png');
+    background-size: cover;
+}
+
+.us::before{
+    background-image: url('/Asset/united-states.png');
+    background-size: contain;
+}
+
+.lang-menu:hover ul{
+    display: block;
+}
+
+.user-menu{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.user-menu ul li{
+    display: flex;
+}
+
+.selected-user{
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    line-height: 2;
+    width: 160px;
+    margin-right: 25px;
+}
+
+.selected-user::before{
+    content:'';
+    display:block;
+    width: 32px;
+    height: 32px;
+}
+
+.user-menu ul{
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    display: none;
+    top: 60px;
+    position: absolute;
+}
+
+.user-menu ul li button{
+    width: 190px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    color:black;
+    border: none;
+    background-color: white;
+
+}
+
+.user-menu ul li button::before{
+    content:'';
+    display:inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.user-menu ul li button:hover{
+   background-color: #f2f2f2;
+}
+
+.logout::before{
+    background-image: none;
+    height: 30px;
+}
+
+.user-menu:hover ul{
     display: block;
 }

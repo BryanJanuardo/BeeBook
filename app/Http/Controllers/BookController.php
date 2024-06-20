@@ -35,7 +35,12 @@ class BookController extends Controller
     public function detailIndex($ISBN)
     {
         $book = Book::findOrFail($ISBN);
-        return view('DetailBook', ['book' => $book]);
+        $feedbacks = FeedbackController::getAllFeedbackWithISBN($ISBN);
+
+        return view('DetailBook', [
+            'book' => $book,
+            'feedbacks' => $feedbacks
+        ]);
     }
 
     public function showBook($ISBN, $page)
