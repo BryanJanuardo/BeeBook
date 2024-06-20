@@ -27,17 +27,17 @@
         </div>
 
         <div class="page-content">
-
-            <form action="">
-                <button class="post-card">
-                    <div class="post-content">
-                        <h4 class="post-title">Judul Post</h4>
-                        <p class="post-owner">By "Pengarang"</p>
-                        <p class="post-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. In optio nemo, atque praesentium asperiores et rem officia nobis sed fugiat. Totam ea accusamus alias temporibus assumenda, maiores veniam vitae explicabo porro quod architecto consectetur optio quaerat natus nulla molestiae, consequuntur illo ullam accusantium dolorem inventore? At cum officiis nam neque.</p>
-                    </div>
-                </button>
-            </form>
-
+            @foreach ($getAllPost as $post)
+                <form action="">
+                    <button class="post-card">
+                        <div class="post-content">
+                            <h4 class="post-title">{{$post->title}}</h4>
+                            <p class="post-owner">{{ $getAllUser[$post->user_id]->name }}</p>
+                            <p class="post-body">{{$post->body}}</p>
+                        </div>
+                    </button>
+                </form>
+            @endforeach
         </div>
     @endsection
 

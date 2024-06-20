@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ForumController extends Controller
 {
     public function index()
     {
-        return view('Forum');
+        $getAllPost = DB::table('posts')->get();
+        $getAllUser = [];
+
+        foreach ($getAllPost as $post) {
+            $getAllUser[$post->user_id] = User::where('id', $post->user_id)->first();
+        }
+
+        return view('Forum', compact('getAllPost', 'getAllUser'));
     }
 
     public function addPost(Request $request)
@@ -27,12 +36,8 @@ class ForumController extends Controller
         ]);
 
         // tambah validasi buat insert --> insert + validasi
-        $Post = Post::create([
-
-
-        ]);
+        $Post = Post::create([]);
 
         return redirect()->route('Admin Dashboard');
     }
-
 }
