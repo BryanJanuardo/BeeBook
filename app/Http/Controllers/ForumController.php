@@ -2,14 +2,6 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-class Forum extends Controller
-{
-    //
-=======
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -48,5 +40,4 @@ class ForumController extends Controller
 
         return redirect()->route('Admin Dashboard');
     }
->>>>>>> aa9b5755ea23dafabdc02df42ca4ecfdc9146797
 }
