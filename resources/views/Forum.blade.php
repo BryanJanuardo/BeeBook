@@ -32,18 +32,17 @@
     </div>
 
     <div class="page-content">
-        @foreach ($getAllDiscussions as $discussion) 
-            <form action="{{route('Detail Discussion', ['ISBN' => $book->ISBN])}}">
-                <button class="book-card">
-                    <img class="book-picture" src="../storage/Book/BookPicture/images.jpeg" alt="">
-                    <div class="book-content">
-                        <h4 class="book-title">{{ $book->BookTitle }}</h4>
-                        <p class="book-author">{{ $book->AuthorName }}</p>
-                        <p class="book-price">Rp. {{ $book->BookPrice }}</p>
-                    </div>
-                </button>
-            </form>
-        @endforeach
+
+        <form action="">
+            <button class="post-card">
+                <div class="post-content">
+                    <h4 class="post-title"></h4>
+                    <p class="post-owner"></p>
+                    <p class="post-content"></p>
+                </div>
+            </button>
+        </form>
+
     </div>
     @endsection
 
