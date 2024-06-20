@@ -62,7 +62,6 @@ Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
-// Route::get('/Wishlist', [WishlistController::class, 'index'])->name('Wishlist');
 
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
