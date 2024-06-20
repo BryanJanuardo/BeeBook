@@ -15,15 +15,16 @@
 </head>
 <body>
     <nav class="navbar">
+        @auth
         <ul>
             <li><a href="{{route('Dashboard')}}" class="logo">BeeBook</a></li>
             <li><a href="{{route('About Us')}}" class="link">About</a></li>
-            <li><a href="" class="link">Forum</a></li>
+            <li><a href="{{route('Forum')}}" class="link">Forum</a></li>
             <li><a href="" class="link">Read List</a></li>
             <li><a href="" class="link">Bookmark</a></li>
         </ul>
         <ul>
-            <li><a href="" class="link">120 <img src="{{asset('Asset/coin.png')}}" class="coin"></a></li>
+            <a href="" class="link"><li>120 <img src="{{asset('Asset/coin.png')}}" class="coin"></li></a>
             <div class="lang-menu">
                 <div class="selected-lang">
                     English
@@ -37,7 +38,44 @@
                     </li>
                 </ul>
             </div>
+            <div class="user-menu">
+                <div class="selected-user">
+                    Welcome! {{auth()->user()->name}}
+                </div>
+                <ul>
+                    <li>
+                        <form action="{{route('Logout')}}" method="POST">
+                            @csrf
+                            <button class="logout">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
         </ul>
+        @else
+        <ul>
+            <li><a href="{{route('Dashboard')}}" class="logo">BeeBook</a></li>
+            <li><a href="{{route('About Us')}}" class="link">About</a></li>
+        </ul>
+        <ul>
+            <div class="lang-menu">
+                <div class="selected-lang">
+                    English
+                </div>
+                <ul>
+                    <li>
+                        <a href="#" class="us"> English</a>
+                    </li>
+                    <li>
+                        <a href="#" class="id"> Indonesia</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="{{route('Login')}}" class="link"><li>Login</li></a>
+
+        </ul>
+        @endauth
+
 
     </nav>
 

@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+.container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.wishlist-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 40px;
+    position: relative;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-top: 100px;
+    margin-bottom: 50px
+}
+
+.filter-container {
+    background-color: #002d40;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #002d40;
+    border: 2px solid #002d40;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filter-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.filter-options {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #002d40;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    right: 130px; /* Adjust to position correctly */
+}
+
+.filter-options.show {
+    display: flex;
+}
+
+.filter-options label {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.option input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #000000; /* Thick black border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #ffffff; /* Background color */
+    position: relative;
+    cursor: pointer;
+}
+
+.option input[type="checkbox"]:checked::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #000000; /* Black checkmark */
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 2px; /* Rounded corners for checkmark */
+}
+
+.wishlist-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ensure 4 columns */
+    gap: 40px;
+    justify-content: center;
+    max-width: 1200px; /* Adjust the max-width to control the overall width */
+    margin: 0 auto; 
+    /* padding-top: 150px */
+}
+
+.wishlist-item {
+    background-color: #022B3A;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.wishlist-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.wishlist-item h2 {
+    font-size: 1.25rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.wishlist-item a {
+    font-size: 1.125rem;
+    font-weight: regular;
+}
+
+.wishlist-item .btn {
+    display: inline-block;
+    width: 100px;
+    padding: 10px 0;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.wishlist-item button {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.wishlist-item .btn-primary {
+    background-color: #D9D9D9;
+    color: black;
+}
+
+.wishlist-item .btn-primary:hover {
+    background-color: #45a049;
+}
+
+.wishlist-item .btn-danger {
+    background-color: transparent;
+    color: white;
+}
+
+.wishlist-item .btn-danger:hover {
+    background-color: #d32f2f;
+}
