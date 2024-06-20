@@ -12,6 +12,7 @@ use App\Http\Controllers\QuestTrackerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserLibraryController;
 use App\Http\Controllers\ForumController;
+
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +51,7 @@ Route::patch('/EditBook/{ISBN}/Post', [BookController::class, 'updateBook'])->na
 Route::delete('/DeleteBook/{ISBN}', [BookController::class, 'deleteBook'])->name('Delete Book');
 
 Route::get('/AddGenre', [GenreController::class, 'index'])->name('Add Genre');
-Route::post('/createGenre' , [GenreController::class, 'createGenre'])->name('Create Genre');
+Route::post('/createGenre', [GenreController::class, 'createGenre'])->name('Create Genre');
 
 Route::get('/editGenre/{id}', [GenreController::class, 'editIndex'])->name('Edit Genre');
 
@@ -58,6 +59,9 @@ Route::patch('/editGenre/{id}', [GenreController::class, 'editGenre'])->name('ed
 Route::delete('/deleteGenre/{id}', [GenreController::class, 'deleteGenre'])->name('deleteGenre');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
+Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 
 Route::get('/Login', [LoginController::class, 'index'])->name('Login')->middleware('guest');
 Route::post('/Login/post', [LoginController::class, 'authenticate'])->name('Authenticate')->middleware('guest');
