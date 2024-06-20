@@ -16,9 +16,10 @@ class Feedback extends Model
     protected $keyType = 'integer';
 
     protected $fillable = [
-        'UserId',
-        'Topic',
-        'Subject'
+        'user_idd',
+        'title',
+        'body',
+        'like'
     ];
 
     public function users()
