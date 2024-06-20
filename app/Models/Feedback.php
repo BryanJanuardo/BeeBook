@@ -29,6 +29,6 @@ class Feedback extends Model
 
     public function books()
     {
-        return $this->hasOne(Book::class, 'ISBN');
+        return $this->belongsTo(Book::class, 'ISBN');
     }
 }

@@ -58,6 +58,10 @@ Route::delete('/deleteGenre/{id}', [GenreController::class, 'deleteGenre'])->nam
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 
 
-Route::get('/Login', [LoginController::class, 'index'])->name('Login');
-Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
+Route::get('/Login', [LoginController::class, 'index'])->name('Login')->middleware('guest');
+Route::post('/Login/post', [LoginController::class, 'authenticate'])->name('Authenticate')->middleware('guest');
+Route::get('/Register', [RegisterController::class, 'index'])->name('Register')->middleware('guest');
+Route::post('/Register/post', [RegisterController::class, 'register'])->name('Register User')->middleware('guest');
+Route::post('/Logout', [LoginController::class, 'logout'])->name('Logout');
+
 Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
