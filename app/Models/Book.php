@@ -35,11 +35,6 @@ class Book extends Model
         return $this->hasMany(Feedback::class, 'ISBN');
     }
 
-<<<<<<< HEAD
-    public function transactions(){
-
-    }
-
     public function userlibrary(){
         return $this->hasMany(UserLibrary::class, 'ISBN');
     }
@@ -47,5 +42,9 @@ class Book extends Model
     public function wishList()
     {
         return $this->hasMany(WishList::class, 'ISBN', 'ISBN');
+    }
+
+    public function transactions(){
+        return $this->hasMany(Transaction::class, 'ISBN');
     }
 }
