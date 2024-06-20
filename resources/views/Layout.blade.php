@@ -19,7 +19,7 @@
         <ul>
             <li><a href="{{route('Dashboard')}}" class="logo">BeeBook</a></li>
             <li><a href="{{route('About Us')}}" class="link">About</a></li>
-            <li><a href="" class="link">Forum</a></li>
+            <li><a href="{{route('Forum')}}" class="link">Forum</a></li>
             <li><a href="" class="link">Read List</a></li>
             <li><a href="" class="link">Bookmark</a></li>
         </ul>

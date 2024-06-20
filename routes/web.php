@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QuestTrackerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserLibraryController;
+use App\Http\Controllers\ForumController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
@@ -65,3 +66,5 @@ Route::post('/Register/post', [RegisterController::class, 'register'])->name('Re
 Route::post('/Logout', [LoginController::class, 'logout'])->name('Logout');
 
 Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
+
+Route::get('/Forum', [ForumController::class, 'index'])->name('Forum');
