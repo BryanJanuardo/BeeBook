@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Genre</title>
+    <link rel="stylesheet" href="/resources//FE/Css/formaddforum.css">
+</head>
+<body>
+   <div class="form-container">
+    <h1> Create Forum</h1>
+    <form action="/forum" method="POST">
+        <label for="topic">Topic</label>
+        <input type="text" id="topic" name="topic" required>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" rows="5" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+   </div>
+</body>
+</html>

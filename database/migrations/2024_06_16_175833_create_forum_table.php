@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('UserId');
             $table->string('Topic');
-            $table->string('Subject');
+            $table->text('Subject');
             $table->timestamps();
         });
     }

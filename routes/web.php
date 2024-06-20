@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\Forum;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QuestTrackerController;
@@ -61,3 +63,6 @@ Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::get('/Login', [LoginController::class, 'index'])->name('Login');
 Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
 Route::post('/submit-feedback', [FeedbackController::class, 'store']);
+
+Route::get('/AddForum', [ForumController::class, 'index'])->name('Add Forum');
+Route::post('/createForum', [ForumController::class, 'createForum'])->name('Create Forum');
