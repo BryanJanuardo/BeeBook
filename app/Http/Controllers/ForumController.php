@@ -36,7 +36,9 @@ class ForumController extends Controller
         ]);
 
         // tambah validasi buat insert --> insert + validasi
-        $Post = Post::create([]);
+        $Post = Post::create([
+
+        ]);
 
         return redirect()->route('Admin Dashboard');
     }
