@@ -201,19 +201,18 @@ a{
     height: 32px;
     vertical-align: middle;
     margin-right: 10px;
-    background-image: url('/Asset/united-states.png');
 }
 
 .lang-menu ul li a:hover{
    background-color: #f2f2f2;
 }
 
-.id::before{
-    background-image: url('/Asset/united-states.png');
+#id::before{
+    background-image: url('/Asset/indonesia.png');
     background-size: cover;
 }
 
-.us::before{
+#us::before{
     background-image: url('/Asset/united-states.png');
     background-size: contain;
 }

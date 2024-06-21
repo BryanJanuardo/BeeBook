@@ -24,17 +24,17 @@
             <li><a href="{{route('Book Mark')}}" class="link">Bookmark</a></li>
         </ul>
         <ul>
-            <a href="" class="link"><li>{{ Auth()->user()->BookRedemptionPoints }} <img src="{{asset('Asset/coin.png')}}" class="coin"></li></a>
+            <a href="{{ route('PointExchange') }}" class="link"><li>{{ Auth()->user()->BookRedemptionPoints }} <img src="{{asset('Asset/coin.png')}}" class="coin"></li></a>
             <div class="lang-menu">
                 <div class="selected-lang">
                     English
                 </div>
                 <ul>
                     <li>
-                        <a href="#" class="us"> English</a>
+                        <a href="#" id="us"> English</a>
                     </li>
                     <li>
-                        <a href="#" class="id"> Indonesia</a>
+                        <a href="#" id="id"> Indonesia</a>
                     </li>
                 </ul>
             </div>

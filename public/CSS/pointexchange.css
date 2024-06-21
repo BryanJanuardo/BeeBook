@@ -1,0 +1,46 @@
+.page-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+
+    margin-top: min(8vh, 60px);
+    margin-left: min(6vh, 60px);
+    margin-right: min(6vh, 60px);
+}
+
+.card{
+    display: flex;
+    padding: 40px;
+    background-color: #022B3A;
+}
+
+.picture{
+    width: 200px;
+    height: 200px;
+
+}
+
+.title{
+    font-size: 22px;
+}
+
+.coins{
+    font-size: 16px;
+}
+
+.redeem {
+    width: 100px;
+    padding: 10px;
+    background-color: white;
+    color: #022B3A;
+    font-size: 15px;
+}
+
+.content{
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 30px;
+    padding: 0;
+
+    color: white;
+}
