@@ -29,7 +29,6 @@ class ForumController extends Controller
 
         $request->validate([
             'post_id' => 'required|string|unique:posts',
-            'user_id' => 'integer',
             'title' => 'required|string',
             'body' => 'required|string',
             'reply' => 'required|string',
@@ -40,6 +39,5 @@ class ForumController extends Controller
 
         ]);
 
-        return redirect()->route('Admin Dashboard');
     }
 }
