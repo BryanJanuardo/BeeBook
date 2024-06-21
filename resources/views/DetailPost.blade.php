@@ -30,8 +30,15 @@
                 <div class="post-actions">
                     <button class="menu-button" onclick="toggleMenu()">•••</button>
                     <div class="dropdown-menu" id="dropdownMenu">
+                        <form action="{{ route('Edit Post Page',['post_id' => $post->id]) }}" method="GET">
+                            @csrf
                         <button class="edit-button">Edit</button>
+                        </form>
+                        <form action="{{ route('Delete Post', ['post_id' => $post->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
                         <button class="delete-button">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>
