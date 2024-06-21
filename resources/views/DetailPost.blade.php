@@ -19,17 +19,95 @@
 
     @section('PageContent')
         <div class="page-header">
-            <div>
-
+            <div class="post-header">
+                <div class="post-avatar">
+                    <img src="../Asset/indo.png" alt="Avatar" class="avatar-icon">
+                </div>
+                <div class="post-info">
+                    <p class="post-author">{{ $post->user->name }}</p>
+                    <p class="post-date">{{$post->created_at}}</p>
+                </div>
+                <div class="post-actions">
+                    <button class="menu-button" onclick="toggleMenu()">•••</button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button>
+                    </div>
+                </div>
             </div>
+            <h1 class="post-title">{{ $post->title }}</h1>
+            <p class="post-content">{{ $post->body }}</p>
+            <p class="post-likes">{{ $post->like }}</p>
         </div>
 
-        <div class="page-content">
 
+        <div class="comment-section">
+            <h2>Comment</h2>
+            @can('user', 'admin')
+            <form method="POST" action="/submit-comment/{{ $post->id }}">
+                @csrf
+                <div class="comment-input">
+                    <div class="comment-avatar-input">
+                        <img src="../Asset/indo.png" alt="Avatar" class="avatar-icon">
+                    </div>
+                    <textarea name="Body" placeholder="Write a comment..."></textarea>
+                    <button class="comment-submit">➤</button>
+                </div>
+            </form>
+            @endcan
+            @foreach ($comments as $comment)
+            <div class="comment">
+                <div class="comment-header">
+                    <div class="comment-avatar">
+                        <img src="../Asset/indo.png" alt="Avatar" class="avatar-icon">
+                    </div>
+                    <div class="comment-info">
+                        <p class="comment-author">{{$comment->user->name}}</p>
+                        <p class="comment-date">{{$comment->created_at}}</p>
+                    </div>
+                    @if ($comment->user->id == Auth::user()->id)
+                    <div class="comment-actions">
+                        <button class="menu-button" onclick="toggleCommentMenu()">•••</button>
+                        <div class="dropdown-menu" id="dropdownMenuComment">
+                            <button class="edit-button">Edit</button>
+                            <button class="delete-button">Delete</button>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+                <p class="comment-content">{{$comment->body}}</p>
+                <div class="comment-likes">{{$comment->like}}</div>
+            </div>
+            @endforeach
         </div>
+
     @endsection
 
 
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('dropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleCommentMenu() {
+            var menu = document.getElementById('dropdownMenuComment');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
 </body>
+
 
 </html>

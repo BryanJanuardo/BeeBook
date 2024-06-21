@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'FeedbackId';
+    protected $primaryKey = 'id';
     public $incrementing = true;
     protected $keyType = 'integer';
 
@@ -22,5 +22,9 @@ class Comment extends Model
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function post(){
+        return $this->belongsTo(Post::class, 'post_id');
     }
 }

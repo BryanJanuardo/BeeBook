@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\WishlistController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\UserLibraryController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ReadProgressController;
 use App\Models\Book;
+use App\Models\Comment;
 use App\Models\UserLibrary;
 use Illuminate\Support\Facades\Route;
 
@@ -74,5 +76,5 @@ Route::middleware('guest')->group(function () {
 Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
 
 Route::get('/Forum', [ForumController::class, 'index'])->name('Forum');
-
 Route::get('/Forum/{post_id}', [ForumController::class, 'showPost'])->name('Show Post');
+Route::post('/submit-comment/{post_id}', [CommentController::class, 'createComment']);
