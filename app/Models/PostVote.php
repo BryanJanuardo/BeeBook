@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class PostVote extends Model
 {
-    use HasFactory;
-
+    public $table = "postvote";
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $keyType = 'integer';
 
     protected $fillable = [
         'user_id',
-        'title',
-        'body',
+        'post_id',
         'like'
+
     ];
 
     public function user()
@@ -25,8 +24,8 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function like()
+    public function post()
     {
-        return $this->hasMany(PostVote::class, 'post_vote_id');
+        return $this->belongsTo(Post::class, 'post_id');
     }
 }

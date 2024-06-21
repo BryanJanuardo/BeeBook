@@ -37,7 +37,10 @@
             </div>
             <h1 class="post-title">{{ $post->title }}</h1>
             <p class="post-content">{{ $post->body }}</p>
-            <p class="post-likes">{{ $post->like }}</p>
+            <form class="like-form" method="post" action="{{ route('Like Post', ['post_id' => $post->id]) }}">
+                @csrf
+                <button class="post-likes">{{ $post->like }}</button>
+            </form>
         </div>
 
 
@@ -86,7 +89,10 @@
                         <button class="comment-submit">➤</button>
                     </div>
                 </form>
-                <div class="comment-likes">{{$comment->like}}</div>
+                <form class="like-form" method='POST' action='{{ route('Like Comment', ['comment_id' => $comment->id]) }}'>
+                    @csrf
+                    <button class="comment-likes">{{$comment->like}}</button>
+                </form>
             </div>
             @endforeach
         </div>
