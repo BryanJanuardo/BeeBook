@@ -1,0 +1,45 @@
+.page-header {
+    border: 2px solid #add8e6;
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.post-date {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 16px;
+}
+
+.post-author {
+    display: none;
+}
+
+.post-content {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.post-likes {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.post-likes::before {
+    content: '❤';
+    font-size: 20px;
+    color: #000;
+    margin-right: 8px;
+}

@@ -28,7 +28,7 @@
 
         <div class="page-content">
             @foreach ($getAllPost as $post)
-                <form action="">
+                <form action="{{route('Show Post', ['post_id' => $post->id])}}">
                     <button class="post-card">
                         <div class="post-content">
                             <h4 class="post-title">{{$post->title}}</h4>

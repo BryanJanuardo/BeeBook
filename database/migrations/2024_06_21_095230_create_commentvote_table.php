@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_votes', function (Blueprint $table) {
+        Schema::create('commentvote', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('post_id')->constrained();
-            $table->smallInteger('vote');
+            $table->foreignId('comment_id')->constrained();
+            $table->integer('like')->default(0);
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_votes');
+        Schema::dropIfExists('commentvote');
     }
 };
