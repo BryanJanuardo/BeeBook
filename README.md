@@ -23,7 +23,6 @@ We extend our sincere gratitude to Mr. Anderies Notanto for his invaluable guida
 
 📁 Our Project Documentation:
 Notion: https://lnkd.in/gnBkW9MH
-Github: https://lnkd.in/g_tRsBWU
 Figma: https://lnkd.in/gY7rUDai
 
 📚 Immerse Yourself and Elevate Your Reading Experience with BeeBook
