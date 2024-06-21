@@ -8,6 +8,53 @@ body {
     margin-top: 20px;
 }
 
+.genre-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #022B3A;
+    width: 30px;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.genre-list img{
+    width: 20px;
+    height: 20px;
+}
+
+.genre-list .dropdown-genre-list{
+    position: absolute;
+    background-color: white;
+    border: solid black;
+    padding: 10px;
+    top: 30px;
+    left: 0px;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.genre-list .dropdown-genre-list .genre{
+    display: flex;
+    gap: 20px;
+}
+
+.genre-list .dropdown-genre-list .genre input{
+    width: 20px;
+    height: 20px;
+}
+
+.search-box input{
+    height: min(10vh, 28px);
+    width: min(60vh, 300px);
+
+    padding: 0 0 0 20px;
+
+    background-color: white;
+}
+
 .wishlist-controls {
     display: flex;
     justify-content: flex-end;
@@ -16,7 +63,7 @@ body {
     position: relative;
     font-weight: 700;
     font-size: 1.25rem;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom: 50px
 }
 
@@ -101,7 +148,7 @@ body {
     gap: 40px;
     justify-content: center;
     max-width: 1200px; /* Adjust the max-width to control the overall width */
-    margin: 0 auto; 
+    margin: 0 auto;
     /* padding-top: 150px */
 }
 
@@ -165,4 +212,19 @@ body {
 
 .wishlist-item .btn-danger:hover {
     background-color: #d32f2f;
+}
+
+.search-button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid #022B3A;
+    background-color: #022B3A;
+}
+
+.search-button img{
+    width: 20px;
+    height: 20px;
 }

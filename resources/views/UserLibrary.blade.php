@@ -16,7 +16,7 @@
         <div class="container">
             <div class="wishlist-controls">
                 <div>
-                    <form style="display: flex; flex-direction: row;" class="search-box" action="{{route ('Filter Read List')}}" method="POST">
+                    <form style="display: flex; flex-direction: row;" class="search-box" action="{{route ('Filter Book Mark')}}" method="POST">
                         @method('POST')
                         @csrf
                         <div class="genre-list">
@@ -34,12 +34,12 @@
                 </div>
             </div>
             <div class="wishlist-section">
-                @foreach ($wishlists as $wishlist)
+                @foreach ($userlibraries as $userlibrary)
                     <div class="wishlist-item">
                         <img class="book-picture" src="{{ asset('storage/Book/BookPicture/images.jpeg') }}" alt="">
-                        <h2>{{ $wishlist->book->BookTitle }}</h2>
-                        <a href="{{ route('Detail Book', ['ISBN' => $wishlist->book->ISBN]) }}" class="btn btn-primary">Read Now</a>
-                        <form action="{{ route('Delete Read List', ['ISBN' => $wishlist->book->ISBN]) }}" method="POST">
+                        <h2>{{ $userlibrary->book->BookTitle }}</h2>
+                        <a href="{{ route('Detail Book', $userlibrary->book->ISBN) }}" class="btn btn-primary">Read Now</a>
+                        <form action="{{ route('Delete Book Mark', ['ISBN' => $userlibrary->book->ISBN]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Remove</button>
@@ -60,15 +60,17 @@
                     }
                 });
             }
-
-            const dropdowns = document.getElementById('genredropdown');
-            const dropdownTrigger = document.getElementById('dropdownButton');
-            dropdownTrigger.addEventListener('click', () => {
-                dropdowns.style.display = dropdowns.style.display === 'flex' ? 'none' : 'flex';
-            });
         });
     </script>
-
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
 
+        const dropdowns = document.getElementById('genredropdown');
+        const dropdownTrigger = document.getElementById('dropdownButton');
+        dropdownTrigger.addEventListener('click', () => {
+            dropdowns.style.display = dropdowns.style.display === 'flex' ? 'none' : 'flex';
+        });
+    });
+</script>
 </html>

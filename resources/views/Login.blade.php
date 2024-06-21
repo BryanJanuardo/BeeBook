@@ -13,17 +13,20 @@
 </head>
 
 <body>
+    @extends('Layout')
+
+    @section('PageContent')
     <div class="container">
         <div class="signin-section">
             <h2>Login</h2>
             <form action="{{ route('Authenticate') }}" method="POST">
                 @csrf
                 <input type="text" placeholder="Email" name="Email" class="input-field" value="{{ old('Email') }}">
-                @error('Email')
+                @error('email')
                     <div>{{ $message }}</div>
                 @enderror
                 <input type="password" placeholder="Password" name="Password" class="input-field">
-                @error('Password')
+                @error('password')
                     <div>{{ $message }}</div>
                 @enderror
                 @if (session()->has('loginFailed'))
@@ -35,11 +38,12 @@
         <div class="signup-section">
             <h2>New Here?</h2>
             <p>Be part of us and read new <br> books everyday!</p>
-            <button class="signup-button">Sign Up</button>
+            <a href="{{ route('Register') }}"><button class="signup-button">Sign Up</button></a>
+
         </div>
     </div>
 
-
+    @endsection
 </body>
 
 </html>

@@ -7,11 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostVote extends Model
 {
-    use HasFactory;
+    public $table = "postvote";
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+    protected $keyType = 'integer';
 
     protected $fillable = [
         'user_id',
         'post_id',
-        'vote'
+        'like'
+
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'post_id');
+    }
 }

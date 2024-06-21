@@ -5,28 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class CommentVote extends Model
 {
-    use HasFactory;
-
+    public $table = "commentvote";
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $keyType = 'integer';
 
     protected $fillable = [
         'user_id',
-        'title',
-        'body',
+        'comment_id',
         'like'
+
     ];
 
-    public function user()
-    {
+    public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function like()
-    {
-        return $this->hasMany(PostVote::class, 'post_vote_id');
+    public function comment(){
+        return $this->belongsTo(Comment::class, 'comment_id');
     }
 }

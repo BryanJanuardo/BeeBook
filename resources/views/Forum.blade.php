@@ -20,8 +20,11 @@
     @section('PageContent')
         <div class="page-header">
             <div>
-                <form class="search-box" action="">
-                    <input placeholder="Search" type="text">
+                <form class="search-box" action="{{ route('Filter Forum') }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input name="searchquery" placeholder="Search" type="text">
+                    <button class="search-button"><img src="{{ asset('Asset/search.png') }}" alt=""></button>
                 </form>
             </div>
         </div>
@@ -32,11 +35,11 @@
 
         <div class="page-content">
             @foreach ($getAllPost as $post)
-                <form action="">
+                <form action="{{route('Show Post', ['post_id' => $post->id])}}">
                     <button class="post-card">
                         <div class="post-content">
                             <h4 class="post-title">{{$post->title}}</h4>
-                            <p class="post-owner">{{ $getAllUser[$post->user_id]->name }}</p>
+                            <p class="post-owner">{{ $post->user->name }}</p>
                             <p class="post-body">{{$post->body}}</p>
                         </div>
                     </button>
