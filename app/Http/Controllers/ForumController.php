@@ -11,7 +11,7 @@ class ForumController extends Controller
 {
     public function index()
     {
-        $getAllPost = DB::table('posts')->get();
+        $getAllPost = Post::get();
         $getAllUser = [];
 
         foreach ($getAllPost as $post) {
@@ -19,6 +19,10 @@ class ForumController extends Controller
         }
 
         return view('Forum', compact('getAllPost', 'getAllUser'));
+    }
+
+    public function createPost(){
+        return view('AddForum');
     }
 
     public function addPost(Request $request)
@@ -29,15 +33,30 @@ class ForumController extends Controller
 
         $request->validate([
             'post_id' => 'required|string|unique:posts',
+            'user_id' => 'integer',
             'title' => 'required|string',
             'body' => 'required|string',
-            'reply' => 'required|string',
+            'like' => 'required|integer|min:0',
         ]);
 
         // tambah validasi buat insert --> insert + validasi
         $Post = Post::create([
-
+            'post_id' => $request->post_id,
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'body' => $request->body,
+            'like' => $request->like,
         ]);
+
+        return redirect()->route('Dashboard');
+    }
+
+    public function editPost(Request $request){
+
+
+    }
+
+    public function deletePost(Request $request){
 
     }
 }

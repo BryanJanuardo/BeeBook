@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -19,18 +21,19 @@ class RegisterController extends Controller
             'Password' => 'required|min:5|max:40'
         ]);
 
-        $credentials['Password'] = bcrypt($credentials['Password']);
+        $user = User::create([
+            'name' => $credentials['Username'],
+            'email' => $credentials['Email'],
+            'password' => Hash::make($credentials['Password']),
+            'BookRedemptionPoints' => 0
+        ]);
 
-        User::create([
-            ''
-        ])
-
-        if(Auth::attempt($credentials)){
+        if(Auth::attempt(['email' => $credentials['Email'], 'password' => $request->Password])){
+            Auth::login($user);
             $request->session()->regenerate();
+            return redirect()->route('Dashboard');
 
-            return redirect()->intended('Dashboard');
-
-            return back()->with('loginFailed', 'Login Failed!');
         }
+        return back()->with('registerFailed', 'Register Failed!');
     }
 }

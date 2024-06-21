@@ -72,3 +72,5 @@ Route::post('/Logout', [LoginController::class, 'logout'])->name('Logout');
 Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
 
 Route::get('/Forum', [ForumController::class, 'index'])->name('Forum');
+Route::get('/AddForum', [ForumController::class, 'createPost'])->name('Add Forum');
+Route::post('AddForum/post', [ForumController::class, 'addPost'])->name('Post Forum');

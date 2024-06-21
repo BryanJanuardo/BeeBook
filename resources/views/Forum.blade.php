@@ -26,6 +26,10 @@
             </div>
         </div>
 
+        <div class="create-post">
+            <div style="display: flex;"><a href="{{ route('Add Forum') }}" class="link" id="admin-button">Create Post</a></div>
+        </div>
+
         <div class="page-content">
             @foreach ($getAllPost as $post)
                 <form action="">
