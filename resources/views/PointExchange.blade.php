@@ -20,7 +20,7 @@
     @section('PageContent')
         <div class="page-content">
             <div class="card">
-                <img class="picture" src="../storage/Merchandise/keychainbook.jpg" alt="">
+                <img class="picture" src="{{ asset('Asset/keychain book.jpg') }}" alt="">
                 <div class="content">
                     <h4 class="title">Book Keychain</h4>
                     <p class="coins">200 Coins</p>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="card">
-                <img class="picture" src="../storage/Merchandise/notebook.jpg" alt="">
+                <img class="picture" src="{{ asset('Asset/notebook.jpg') }}" alt="">
                 <div class="content">
                     <h4 class="title">Notebok</h4>
                     <p class="coins">250 Coins</p>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="card">
-                <img class="picture" src="../storage/Merchandise/totebag.jpg" alt="">
+                <img class="picture" src="{{ asset('Asset/totebag.jpg') }}" alt="">
                 <div class="content">
                     <h4 class="title">Totebag</h4>
                     <p class="coins">100 Coins</p>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="card">
-                <img class="picture" src="../storage/Merchandise/mug.jpg" alt="">
+                <img class="picture" src="{{ asset('Asset/mug.jpg') }}" alt="">
                 <div class="content">
                     <h4 class="title">Mug</h4>
                     <p class="coins">500 Coins</p>
