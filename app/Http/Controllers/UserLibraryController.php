@@ -8,19 +8,31 @@ use Illuminate\Support\Facades\Auth;
 
 class UserLibraryController extends Controller
 {
-    public static function getPageByUserId($userID){
-        $userLibrary = UserLibrary::where('UserID', $userID)->get();
-        if($userLibrary)
-            return $userLibrary->ReadProgress;
-        else
+    public function index(){
+        $user = Auth::user();
+        $userlibraries = UserLibrary::where('UserID', $user->id)->get();
+        return view('UserLibrary')->with('userlibraries', $userlibraries);
+    }
+
+    public function delete($ISBN){
+        $user = Auth::user();
+        UserLibrary::where('ISBN', $ISBN)->where('UserID', $user->id)->delete();
+        return redirect()->route('Book Mark');
+    }
+
+    public static function getPageByUserId($userID, $ISBN){
+        $userLibrary = UserLibrary::where('UserID', $userID)->where('ISBN', $ISBN)->first();
+        if($userLibrary == null){
             return 1;
+        }
+
+        return $userLibrary->ReadProgress;
     }
 
     public static function updateBookProgress($ISBN, $page){
         $user = Auth::user();
-
         if($user){
-            $existingRecord = UserLibrary::where('ISBN', $ISBN)->where('UserID', $user->userID)->first();
+            $existingRecord = UserLibrary::where('ISBN', $ISBN)->where('UserID', $user->id)->first();
             if($existingRecord != null){
                 $existingRecord->update([
                     'ReadProgress' => $page
@@ -29,11 +41,11 @@ class UserLibraryController extends Controller
             else{
                 UserLibrary::create([
                     'ISBN' => $ISBN,
-                    'UserID' => $user->userID,
+                    'UserID' => $user->id,
                     'ReadProgress' => $page
                  ]);
             }
-            QuestTrackerController::updateQuest($user->userID);
+            QuestTrackerController::updateQuest($user->id);
         }
     }
 }

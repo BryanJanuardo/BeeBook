@@ -77,7 +77,7 @@
                     </div>
                 </form>
                 <div class="buttons">
-                    <a href="{{ route('Admin Dashboard') }}"><button id="back-button" class="button">Back</button></a>
+                    <a href="{{ route('Dashboard') }}"><button id="back-button" class="button">Back</button></a>
                 </div>
             </div>
         </div>

@@ -32,40 +32,46 @@
                     <form action="{{route('Show Book', ['ISBN' => $book->ISBN, 'page' => 1])}}">
                         <button class="read-now">Read Now!</button>
                     </form>
-                    <form action="{{route('Add Wishlist', ['ISBN' => $book->ISBN, 'UserId' => 1])}}" method="POST">
-                        @csrf
-                        <button style="background-color: transparent; border: none;"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Wishlist.png')}}" alt=""></button>
-                    </form>
-                    <a href="{{route('Edit Book', ['ISBN' => $book->ISBN])}}"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Editpencil.svg')}}" alt=""></a>
+                    @can('user')
+                        <form action="{{route('Store Read List', ['ISBN' => $book->ISBN, 'UserId' => Auth::user()->id])}}" method="POST">
+                            @csrf
+                            <button style="background-color: transparent; border: none;"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Wishlist.png')}}" alt=""></button>
+                        </form>
+                    @endcan
+                    @can('admin')
+                        <a href="{{route('Edit Book', ['ISBN' => $book->ISBN])}}"><img draggable="false" style="width: 30px; height: 28px;" src="{{asset('Asset/Editpencil.svg')}}" alt=""></a>
+                    @endcan
                 </div>
             </div>
         </div>
 
-        <hr>
+        <hr style="margin-bottom: 30px">
 
-        <form action="/submit-feedback/{{$book->ISBN}}" method="POST">
-            @csrf
-            <div class="rating-container">
-                <h2>Rating</h2>
-                <div style="position: relative;" class="rating-send">
-                    <div class="rating-star"><span style="padding-right: 5px;" class="rating-right">&nbsp; / &nbsp;10.0</span><img draggable="false" style="background-color: #022B3A; width: 16px; height: 16px;" src="{{asset('Asset/Whitestar.png')}}" alt=""></div>
-                    <input id="Ratinginput" name="Rating" value="0.0" type="text" />
-                    <div class="arrow-box">
-                        <img draggable="false" id="Arrowup" src="{{asset('Asset/Arrowup.png')}}" alt="">
-                        <img draggable="false" id="Arrowdown" src="{{asset('Asset/Arrowdown.png')}}" alt="">
+        @can('user')
+            <form action="/submit-feedback/{{$book->ISBN}}" method="POST">
+                @csrf
+                <div class="rating-container">
+                    <h2>Rating</h2>
+                    <div style="position: relative;" class="rating-send">
+                        <div class="rating-star"><span style="padding-right: 5px;" class="rating-right">&nbsp; / &nbsp;10.0</span><img draggable="false" style="background-color: #022B3A; width: 16px; height: 16px;" src="{{asset('Asset/Whitestar.png')}}" alt=""></div>
+                        <input id="Ratinginput" name="Rating" value="0.0" type="text" />
+                        <div class="arrow-box">
+                            <img draggable="false" id="Arrowup" src="{{asset('Asset/Arrowup.png')}}" alt="">
+                            <img draggable="false" id="Arrowdown" src="{{asset('Asset/Arrowdown.png')}}" alt="">
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
 
-            <div class="comment-container">
-                <h2>Comments</h2>
-                <div class="comment-send">
-                    <input type="text" name="Subject" placeholder="Put your comments here..." />
-                    <button type="Submit">Send</button>
+                <div class="comment-container">
+                    <h2>Comments</h2>
+                    <div class="comment-send">
+                        <input type="text" name="Subject" placeholder="Put your comments here..." />
+                        <button type="Submit">Send</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        @endcan
 
         @foreach ($feedbacks as $feedback)
         <div class="cards">

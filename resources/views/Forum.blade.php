@@ -32,7 +32,7 @@
                     <button class="post-card">
                         <div class="post-content">
                             <h4 class="post-title">{{$post->title}}</h4>
-                            <p class="post-owner">{{ $getAllUser[$post->user_id]->name }}</p>
+                            <p class="post-owner">{{ $post->user->name }}</p>
                             <p class="post-body">{{$post->body}}</p>
                         </div>
                     </button>

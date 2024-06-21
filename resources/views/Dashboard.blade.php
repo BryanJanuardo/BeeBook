@@ -18,6 +18,11 @@
     @section('PageContent')
     <div class="page-header">
         <form action="">
+            @can('admin')
+                <div>
+                    <div style="display: flex;"><a href="{{ route('Add Book') }}" class="link" id="admin-button">Add Book</a></div>
+                </div>
+            @endcan
             <div class="genre-list">
                 <button id="all-genre-content" class="genre-content">All</button>
                 <button class="genre-content">Fiction</button>

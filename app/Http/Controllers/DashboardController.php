@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    
     public function index(){
         $getAllBook = DB::table('books')->get();
-        // dd($getAllBook);
         return view('Dashboard')->with('getAllBook', $getAllBook);
     }
 }

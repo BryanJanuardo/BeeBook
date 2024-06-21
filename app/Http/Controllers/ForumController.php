@@ -11,7 +11,7 @@ class ForumController extends Controller
 {
     public function index()
     {
-        $getAllPost = DB::table('posts')->get();
+        $getAllPost = Post::get();
         $getAllUser = [];
 
         foreach ($getAllPost as $post) {
