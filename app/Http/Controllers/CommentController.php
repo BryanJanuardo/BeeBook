@@ -31,4 +31,29 @@ class CommentController extends Controller
 
         return redirect()->route('Show Post', ['post_id' => $post_id]);
     }
+
+    public function editComment(Request $request, $comment_id){
+        $user = Auth::user();
+
+        if($user == null){
+            return redirect()->route('Show Post', ['post_id' => $request->post_id]);
+        }
+
+        $comment = Comment::where('id', $comment_id)->firstOrFail();
+
+        $comment->update([
+            'body' => $request->Body
+        ]);
+
+        $comment->save();
+        return back();
+
+    }
+
+    public function deleteComment($comment_id){
+        $comment = Comment::where('id', '=', $comment_id)->firstOrFail();
+        $comment->delete();
+
+        return back();
+    }
 }

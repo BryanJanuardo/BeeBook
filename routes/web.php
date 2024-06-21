@@ -78,3 +78,5 @@ Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
 Route::get('/Forum', [ForumController::class, 'index'])->name('Forum');
 Route::get('/Forum/{post_id}', [ForumController::class, 'showPost'])->name('Show Post');
 Route::post('/submit-comment/{post_id}', [CommentController::class, 'createComment']);
+Route::post('/edit-comment/{comment_id}', [CommentController::class, 'editComment']);
+Route::post('/delete-comment/{comment_id}', [CommentController::class, 'deleteComment'])->name('Delete Comment');

@@ -42,9 +42,9 @@
 
 
         <div class="comment-section">
-            <h2>Comment</h2>
+            <h2>Comments</h2>
             @can('user', 'admin')
-            <form method="POST" action="/submit-comment/{{ $post->id }}">
+            <form method="POST" action="/submit-comment/{{$post->id}}">
                 @csrf
                 <div class="comment-input">
                     <div class="comment-avatar-input">
@@ -69,13 +69,23 @@
                     <div class="comment-actions">
                         <button class="menu-button" onclick="toggleCommentMenu()">•••</button>
                         <div class="dropdown-menu" id="dropdownMenuComment">
-                            <button class="edit-button">Edit</button>
-                            <button class="delete-button">Delete</button>
+                            <button class="edit-button" onclick="toggleCommentEdit()">Edit</button>
+                            <form action="{{ route('Delete Comment', ['comment_id' => $comment->id]) }}" method="POST">
+                                @csrf
+                                <button class="delete-button" >Delete</button>
+                            </form>
                         </div>
                     </div>
                     @endif
                 </div>
-                <p class="comment-content">{{$comment->body}}</p>
+                <p class="comment-content" id="commentContent">{{$comment->body}}</p>
+                <form method="POST" action="/edit-comment/{{$comment->id}}">
+                    @csrf
+                    <div class="comment-edit-input" id="commentEdit">
+                        <textarea name="Body">{{$comment->body}}</textarea>
+                        <button class="comment-submit">➤</button>
+                    </div>
+                </form>
                 <div class="comment-likes">{{$comment->like}}</div>
             </div>
             @endforeach
@@ -95,7 +105,24 @@
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
 
+        function toggleCommentEdit() {
+            var menu = document.getElementById('commentEdit');
+            var comment = document.getElementById('commentContent');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            comment.style.display = comment.style.display === 'none' ? 'flex' : 'none';
+        }
+
         window.onclick = function(event) {
+            if (!event.target.matches('.edit-button')) {
+
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+
             if (!event.target.matches('.menu-button')) {
                 var dropdowns = document.getElementsByClassName("dropdown-menu");
                 for (var i = 0; i < dropdowns.length; i++) {
