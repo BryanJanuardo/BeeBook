@@ -35,8 +35,16 @@ class Book extends Model
         return $this->hasMany(Feedback::class, 'ISBN');
     }
 
+    public function userlibrary(){
+        return $this->hasMany(UserLibrary::class, 'ISBN');
+    }
+
     public function wishList()
     {
         return $this->hasMany(WishList::class, 'ISBN', 'ISBN');
+    }
+
+    public function transactions(){
+        return $this->hasMany(Transaction::class, 'ISBN');
     }
 }

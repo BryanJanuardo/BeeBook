@@ -160,5 +160,15 @@
 
 </script>
 
+<script>
+    document.getElementById('updateButton').addEventListener('click', function() {
+        var id = document.getElementById('genreId').value;
+        var newName = document.getElementById('newGenreName').value;
+        var newAction = "/genre/" + id;
+        document.getElementById('formGenre').setAttribute('action', newAction);
+        document.getElementById('GenreName').setAttribute('value', newName);
+        document.getElementById('formGenre').submit();
+    });
+</script>
 
 </html>

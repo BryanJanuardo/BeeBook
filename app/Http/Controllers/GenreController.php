@@ -11,7 +11,7 @@ class GenreController extends Controller
 {
     public function index(){
         return view('AddGenre');
-    }
+     }
 
     public function editIndex($id){
         $genre = Genre::findOrFail($id);
@@ -61,4 +61,7 @@ class GenreController extends Controller
 
         return redirect()->back();
     }
+
 }
+
+

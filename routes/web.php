@@ -69,6 +69,8 @@ Route::middleware('user')->group(function () {
     Route::get('/Forum/{post_id}', [ForumController::class, 'showPost'])->name('Show Post');
     Route::post('/submit-comment/{post_id}', [CommentController::class, 'createComment']);
     Route::post('/like-post/{post_id}', [PostVoteController::class, 'likePost'])->name('Like Post');
+    Route::get('/AddForum', [ForumController::class, 'createPost'])->name('Add Forum');
+    Route::post('AddForum/post', [ForumController::class, 'addPost'])->name('Post Forum');
 
     Route::post('/edit-comment/{comment_id}', [CommentController::class, 'editComment']);
     Route::post('/delete-comment/{comment_id}', [CommentController::class, 'deleteComment'])->name('Delete Comment');

@@ -6,12 +6,21 @@ use App\Models\Post;
 use App\Models\User;
 use App\Http\Controllers\CommentController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ForumController extends Controller
 {
     public function index()
     {
+        $getAllPost = Post::get();
+        $getAllUser = [];
+
+        foreach ($getAllPost as $post) {
+            $getAllUser[$post->user_id] = User::where('id', $post->user_id)->first();
+        }
+
+        return view('Forum', compact('getAllPost', 'getAllUser'));
         $getAllPost = Post::get();
 
         return view('Forum', compact('getAllPost'));
@@ -34,23 +43,39 @@ class ForumController extends Controller
         ]);
     }
 
+    public function createPost(){
+        return view('AddForum');
+    }
+
     public function addPost(Request $request)
     {
-        if (Post::where('post_id', '=', $request->post_id)->exists()) {
+        if (Post::where('id', '=', $request->post_id)->exists()) {
             return redirect()->route('Create Post');
         }
 
         $request->validate([
-            'post_id' => 'required|string|unique:posts',
-            'user_id' => 'integer',
             'title' => 'required|string',
             'body' => 'required|string',
-            'reply' => 'required|string',
         ]);
 
-        // tambah validasi buat insert --> insert + validasi
-        $Post = Post::create([]);
 
-        return redirect()->route('Admin Dashboard');
+        // tambah validasi buat insert --> insert + validasi
+        $Post = Post::create([
+            'user_id' => Auth::user()->id,
+            'title' => $request->title,
+            'body' => $request->body,
+            'like' => 0
+        ]);
+
+        return redirect()->route('Forum');
+    }
+
+    public function editPost(Request $request){
+
+
+    }
+
+    public function deletePost(Request $request){
+
     }
 }

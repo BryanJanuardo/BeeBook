@@ -38,7 +38,7 @@ form {
 label {
     font-size: 20px;
     text-align: left;
-    font-weight: ;
+    font-weight: 10;
 
 
 }
@@ -65,7 +65,7 @@ button {
 
 button[id="back-button"] {
     padding: 10px 20px;
-    margin-top: ;
+    margin-top: 10;
     background-color: #022B3A;
     color: white;
     border: none;

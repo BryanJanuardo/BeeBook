@@ -78,7 +78,8 @@
     color: white;
     background-color: #022B3A;
     border-color: #022B3A;
-
+    margin-left: 20px;
+    margin-bottom: 50px;
     cursor: pointer;
 
 }
