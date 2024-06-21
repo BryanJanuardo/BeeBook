@@ -9,6 +9,10 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+    protected $keyType = 'integer';
+
     protected $fillable = [
         'user_id',
         'title',

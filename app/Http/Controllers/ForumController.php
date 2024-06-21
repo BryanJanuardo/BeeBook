@@ -12,13 +12,18 @@ class ForumController extends Controller
     public function index()
     {
         $getAllPost = Post::get();
-        $getAllUser = [];
 
-        foreach ($getAllPost as $post) {
-            $getAllUser[$post->user_id] = User::where('id', $post->user_id)->first();
-        }
+        return view('Forum', compact('getAllPost'));
+    }
 
-        return view('Forum', compact('getAllPost', 'getAllUser'));
+    public function showPost($post_id){
+        $post = Post::findOrFail($post_id);
+        $comments = CommentController::getAllCommentByPostId($post_id);
+
+        return view('DetailPost', [
+            'post' => $post,
+            'comments' => $comments
+        ]);
     }
 
     public function addPost(Request $request)

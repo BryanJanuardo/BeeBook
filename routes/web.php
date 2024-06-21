@@ -72,4 +72,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
+
 Route::get('/Forum', [ForumController::class, 'index'])->name('Forum');
+
+Route::get('/Forum/{post_id}', [ForumController::class, 'showPost'])->name('Show Post');

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             BookSeeder::class,
             RoleSeeder::class,
-            FeedbackSeeder::class
+            FeedbackSeeder::class,
+            PostSeeder::class
         ]);
     }
 }
