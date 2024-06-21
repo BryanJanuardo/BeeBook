@@ -78,6 +78,7 @@ Route::middleware('user')->group(function () {
     Route::post('/like-comment/{comment_id}', [CommentVoteController::class, 'likeComment'])->name('Like Comment');
 
     Route::get('/PointExchange', [ExchangeController::class, 'index'])->name('PointExchange');
+    Route::post('/PointExchange/{point}', [ExchangeController::class, 'exchange'])->name('Exchange Point');
 
     Route::post('/Logout', [LoginController::class, 'logout'])->name('Logout');
 });

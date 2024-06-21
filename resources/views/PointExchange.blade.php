@@ -19,45 +19,57 @@
 
     @section('PageContent')
         <div class="page-content">
-            <div class="card">
-                <img class="picture" src="{{ asset('Asset/keychain book.jpg') }}" alt="">
-                <div class="content">
-                    <h4 class="title">Book Keychain</h4>
-                    <p class="coins">200 Coins</p>
-                    <br>
-                    <button class="redeem">Redeem</button>
+            <form method="POST" action="{{ route('Exchange Point', ['point' => 200]) }}">
+                @csrf
+                <div class="card">
+                    <img class="picture" src="{{ asset('Asset/keychain book.jpg') }}" alt="">
+                    <div class="content">
+                        <h4 class="title">Book Keychain</h4>
+                        <p class="coins">200 Coins</p>
+                        <br>
+                        <button class="redeem">Redeem</button>
+                    </div>
                 </div>
-            </div>
+            </form>
 
-            <div class="card">
-                <img class="picture" src="{{ asset('Asset/notebook.jpg') }}" alt="">
-                <div class="content">
-                    <h4 class="title">Notebok</h4>
-                    <p class="coins">250 Coins</p>
-                    <br>
-                    <button class="redeem">Redeem</button>
+            <form method="POST" action="{{ route('Exchange Point', ['point' => 250]) }}">
+                @csrf
+                <div class="card">
+                    <img class="picture" src="{{ asset('Asset/notebook.jpg') }}" alt="">
+                    <div class="content">
+                        <h4 class="title">Notebook</h4>
+                        <p class="coins">250 Coins</p>
+                        <br>
+                        <button class="redeem">Redeem</button>
+                    </div>
                 </div>
-            </div>
+            </form>
 
-            <div class="card">
-                <img class="picture" src="{{ asset('Asset/totebag.jpg') }}" alt="">
-                <div class="content">
-                    <h4 class="title">Totebag</h4>
-                    <p class="coins">100 Coins</p>
-                    <br>
-                    <button class="redeem">Redeem</button>
+            <form method="POST" action="{{ route('Exchange Point', ['point' => 100]) }}">
+                @csrf
+                <div class="card">
+                    <img class="picture" src="{{ asset('Asset/totebag.jpg') }}" alt="">
+                    <div class="content">
+                        <h4 class="title">Totebag</h4>
+                        <p class="coins">100 Coins</p>
+                        <br>
+                        <button class="redeem">Redeem</button>
+                    </div>
                 </div>
-            </div>
+            </form>
 
-            <div class="card">
-                <img class="picture" src="{{ asset('Asset/mug.jpg') }}" alt="">
-                <div class="content">
-                    <h4 class="title">Mug</h4>
-                    <p class="coins">500 Coins</p>
-                    <br>
-                    <button class="redeem">Redeem</button>
+            <form method="POST" action="{{ route('Exchange Point', ['point' => 500]) }}">
+                @csrf
+                <div class="card">
+                    <img class="picture" src="{{ asset('Asset/mug.jpg') }}" alt="">
+                    <div class="content">
+                        <h4 class="title">Mug</h4>
+                        <p class="coins">500 Coins</p>
+                        <br>
+                        <button class="redeem">Redeem</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     @endsection
 
