@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentVoteController;
+use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\WishlistController;
@@ -75,6 +76,8 @@ Route::middleware('user')->group(function () {
     Route::post('/edit-comment/{comment_id}', [CommentController::class, 'editComment']);
     Route::post('/delete-comment/{comment_id}', [CommentController::class, 'deleteComment'])->name('Delete Comment');
     Route::post('/like-comment/{comment_id}', [CommentVoteController::class, 'likeComment'])->name('Like Comment');
+
+    Route::get('/PointExchange', [ExchangeController::class, 'index'])->name('PointExchange');
 
     Route::post('/Logout', [LoginController::class, 'logout'])->name('Logout');
 });
