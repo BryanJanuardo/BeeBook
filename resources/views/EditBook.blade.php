@@ -187,9 +187,6 @@
                         document.getElementById("book-form").submit();
                     });
 
-                    // Flow buat Delete: klik delete button form -> Update form action jadi route delete Book ->
-                    // Muncul Popup -> tombol konfirmasi untuk mengirim / submit form
-
                     document.getElementById("delete-button").addEventListener('click', function() {
                         event.preventDefault();
                         document.getElementById("PopUpDelete").style.display = 'flex';
