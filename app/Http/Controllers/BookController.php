@@ -49,7 +49,7 @@ class BookController extends Controller
         $url = Storage::url('Book/BookFile/' . $book->BookFile);
         $user = Auth::user();
 
-        if($user) $page = UserLibraryController::getPageByUserId($user->userID);
+        if($user) $page = UserLibraryController::getPageByUserId($user->id, $ISBN);
 
         return view('ShowBook')->with([
             'filePath' => $url,
@@ -69,8 +69,7 @@ class BookController extends Controller
     public function decrementPage($ISBN, $page){
         $book = Book::findOrFail($ISBN);
         $user = Auth::user();
-        if($user) UserLibraryController::updateBookProgress($ISBN, $page);
-
+        if($user) UserLibraryController::updateBookProgress($ISBN, $page - 1);
         return redirect()->route('Show Book', ['ISBN' => $ISBN, 'page' => $page - 1]);
     }
 
@@ -124,7 +123,7 @@ class BookController extends Controller
 
         $this->attachAllGenre($book, $request->genrelist);
 
-        return redirect()->route('Admin Dashboard');
+        return redirect()->route('Dashboard');
     }
 
     // tambah validasi buat update --> update + validasi
@@ -172,6 +171,6 @@ class BookController extends Controller
     {
         $book = Book::where('ISBN', '=', $ISBN)->firstOrFail();
         $book->delete();
-        return redirect()->route('Admin Dashboard');
+        return redirect()->route('Dashboard');
     }
 }

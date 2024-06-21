@@ -20,11 +20,11 @@
             <li><a href="{{route('Dashboard')}}" class="logo">BeeBook</a></li>
             <li><a href="{{route('About Us')}}" class="link">About</a></li>
             <li><a href="{{route('Forum')}}" class="link">Forum</a></li>
-            <li><a href="" class="link">Read List</a></li>
-            <li><a href="" class="link">Bookmark</a></li>
+            <li><a href="{{route('Read List')}}" class="link">Read List</a></li>
+            <li><a href="{{route('Book Mark')}}" class="link">Bookmark</a></li>
         </ul>
         <ul>
-            <a href="" class="link"><li>120 <img src="{{asset('Asset/coin.png')}}" class="coin"></li></a>
+            <a href="" class="link"><li>{{ Auth()->user()->BookRedemptionPoints }} <img src="{{asset('Asset/coin.png')}}" class="coin"></li></a>
             <div class="lang-menu">
                 <div class="selected-lang">
                     English

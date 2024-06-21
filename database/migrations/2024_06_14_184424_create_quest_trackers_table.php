@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quest_trackers', function (Blueprint $table) {
-            $table->id('TrackerID');
+            $table->id();
             $table->date('QuestCompletedDate')->nullable();
             $table->boolean('QuestAvailable');
             $table->unsignedBigInteger('UserID');
