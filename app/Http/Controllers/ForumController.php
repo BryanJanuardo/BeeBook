@@ -47,6 +47,12 @@ class ForumController extends Controller
         return view('AddForum');
     }
 
+    public function Edit($post_id){
+        $post = Post::findOrFail($post_id);
+
+        return view('EditForum', ['post' => $post]);
+    }
+
     public function addPost(Request $request)
     {
         if (Post::where('id', '=', $request->post_id)->exists()) {
@@ -70,12 +76,33 @@ class ForumController extends Controller
         return redirect()->route('Forum');
     }
 
-    public function editPost(Request $request){
+    public function editPost(Request $request, $post_id){
+        $post = Post::findOrFail($post_id);
 
+        $request->validate([
+            'title' => 'required|string',
+            'body' => 'required|string',
+        ]);
 
+        // if($post->user_id !== Auth::user()->id){
+        //     return redirect()->route('Forum');
+        // }
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        return redirect()->route('Forum');
     }
 
-    public function deletePost(Request $request){
+    public function deletePost($post_id){
+        $post = Post::findOrFail($post_id);
 
+        // if($post->user_id !== Auth::user()->id){
+        //     return redirect()->route('Forum');
+        // }
+
+        $post->delete();
+        return redirect()->route('Forum');
     }
 }
