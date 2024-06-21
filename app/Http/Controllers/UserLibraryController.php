@@ -2,16 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\UserLibrary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserLibraryController extends Controller
 {
     public function index(){
         $user = Auth::user();
         $userlibraries = UserLibrary::where('UserID', $user->id)->get();
-        return view('UserLibrary')->with('userlibraries', $userlibraries);
+        $genres = Genre::all();
+        return view('UserLibrary')->with(['userlibraries' => $userlibraries,
+        'genres' => $genres]);
+    }
+
+
+
+    public function filter(Request $request){
+        $query = $request->input('searchquery', '');
+        $genresQuery = $request->input('genresearchlist', []);
+        $user = Auth::user();
+
+        $userlibraries =  UserLibrary::where('UserId', $user->id)
+        ->whereHas('book', function ($queryBuilder) use ($query, $genresQuery) {
+            if (!empty($query)) {
+                $queryBuilder->where('BookTitle', 'like', '%' . $query . '%');
+            }
+            if (!empty($genresQuery)) {
+                $queryBuilder->whereHas('genres', function ($q) use ($genresQuery) {
+                    $q->whereIn('id', $genresQuery);
+                });
+            }
+        })
+        ->get();
+
+        $getAllGenre = Genre::all();
+        return view('UserLibrary')->with(['userlibraries' => $userlibraries, 'genres' => $getAllGenre]);
     }
 
     public function delete($ISBN){

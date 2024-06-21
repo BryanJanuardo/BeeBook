@@ -20,8 +20,11 @@
     @section('PageContent')
         <div class="page-header">
             <div>
-                <form class="search-box" action="">
-                    <input placeholder="Search" type="text">
+                <form class="search-box" action="{{ route('Filter Forum') }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <input name="searchquery" placeholder="Search" type="text">
+                    <button class="search-button"><img src="{{ asset('Asset/search.png') }}" alt=""></button>
                 </form>
             </div>
         </div>

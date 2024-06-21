@@ -15,19 +15,22 @@
     @section('PageContent')
         <div class="container">
             <div class="wishlist-controls">
-                <div class="filter-container">
-                    <div class="filter-button" id="filter-button">
-                        <img class="filter-icon" src="{{ asset('Asset/filter.png') }}" alt="Filter Icon">
-                    </div>
-                </div>
-                <div class="filter-options" id="filter-options">
-                    <label for="sort">Sort by Alphabet</label>
-                    <div class="option">
-                        <input type="checkbox" id="sort-asc" name="sort" value="asc"> Ascending
-                    </div>
-                    <div class="option">
-                        <input type="checkbox" id="sort-desc" name="sort" value="desc"> Descending
-                    </div>
+                <div>
+                    <form style="display: flex; flex-direction: row;" class="search-box" action="{{route ('Filter Book Mark')}}" method="POST">
+                        @method('POST')
+                        @csrf
+                        <div class="genre-list">
+                            <img src="{{asset('Asset/Filter.png')}}" id="dropdownButton" alt="">
+                            <div id="genredropdown" class="dropdown-genre-list">
+                                @foreach ($genres as $genre)
+                                    <div class="genre"><input name="genresearchlist[]" value="{{ $genre->id }}" type="checkbox"><label for="">{{ $genre->GenreName }}</label></div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <input placeholder="Search" value="" name="searchquery" type="text">
+                        <button type="submit" class="search-button"><img class="" src="{{asset('Asset/search.png')}}" alt=""></button>
+                    </form>
                 </div>
             </div>
             <div class="wishlist-section">
@@ -60,5 +63,14 @@
         });
     </script>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
 
+        const dropdowns = document.getElementById('genredropdown');
+        const dropdownTrigger = document.getElementById('dropdownButton');
+        dropdownTrigger.addEventListener('click', () => {
+            dropdowns.style.display = dropdowns.style.display === 'flex' ? 'none' : 'flex';
+        });
+    });
+</script>
 </html>

@@ -17,6 +17,13 @@ class ForumController extends Controller
         return view('Forum', compact('getAllPost'));
     }
 
+    public function filter(Request $request)
+    {
+        $query = $request->input('searchquery', '');
+        $getAllPost = Post::where('title', 'LIKE', '%' . $query . '%')->get();
+        return view('Forum', compact('getAllPost'));
+    }
+
     public function showPost($post_id){
         $post = Post::findOrFail($post_id);
         $comments = CommentController::getAllCommentByPostId($post_id);

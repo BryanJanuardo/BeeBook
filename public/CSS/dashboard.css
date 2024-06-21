@@ -10,8 +10,38 @@
 
 .page-header .genre-list{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #022B3A;
+    width: 30px;
+    position: relative;
+}
 
-    padding: 50px 0px 0px 0px;
+.page-header .genre-list img{
+    width: 20px;
+    height: 20px;
+}
+
+.page-header .genre-list .dropdown-genre-list{
+    position: absolute;
+    background-color: white;
+    border: solid black;
+    padding: 10px;
+    top: 30px;
+    left: 0px;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.page-header .genre-list .dropdown-genre-list .genre{
+    display: flex;
+    gap: 20px;
+}
+
+.page-header .genre-list .dropdown-genre-list .genre input{
+    width: 20px;
+    height: 20px;
 }
 
 .page-header .genre-list .genre-content{
@@ -95,4 +125,19 @@
     border-color: #022B3A;
     cursor: pointer;
 
+}
+
+.search-button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid #022B3A;
+    background-color: #022B3A;
+}
+
+.search-button img{
+    width: 20px;
+    height: 20px;
 }

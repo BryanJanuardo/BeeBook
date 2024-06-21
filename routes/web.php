@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [DashboardController::class, 'index'])->name('Dashboard');
+Route::post('/FilterBook', [DashboardController::class, 'filter'])->name('Filter Book');
 Route::get('/AboutUs', [AboutController::class, 'index'])->name('About Us');
 
 Route::middleware('admin')->group(function () {
@@ -53,11 +54,25 @@ Route::middleware('admin')->group(function () {
 
 Route::middleware('user')->group(function () {
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('Read List');
+    Route::post('/filterwishlist', [WishlistController::class, 'filter'])->name('Filter Read List');
     Route::delete('/wishlist/{ISBN}', [WishlistController::class, 'delete'])->name('Delete Read List');
     Route::post('/Wishlist/{ISBN}/{UserId}/Post', [WishlistController::class, 'addWishlist'])->name('Store Read List');
 
     Route::get('/bookmark', [UserLibraryController::class, 'index'])->name('Book Mark');
+    Route::post('/filterbookmark', [UserLibraryController::class, 'filter'])->name('Filter Book Mark');
     Route::delete('/bookmark/{ISBN}', [UserLibraryController::class, 'delete'])->name('Delete Book Mark');
+
+    Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
+
+    Route::get('/Forum', [ForumController::class, 'index'])->name('Forum');
+    Route::post('/FilterForum', [ForumController::class, 'filter'])->name('Filter Forum');
+    Route::get('/Forum/{post_id}', [ForumController::class, 'showPost'])->name('Show Post');
+    Route::post('/submit-comment/{post_id}', [CommentController::class, 'createComment']);
+    Route::post('/like-post/{post_id}', [PostVoteController::class, 'likePost'])->name('Like Post');
+
+    Route::post('/edit-comment/{comment_id}', [CommentController::class, 'editComment']);
+    Route::post('/delete-comment/{comment_id}', [CommentController::class, 'deleteComment'])->name('Delete Comment');
+    Route::post('/like-comment/{comment_id}', [CommentVoteController::class, 'likeComment'])->name('Like Comment');
 
     Route::post('/Logout', [LoginController::class, 'logout'])->name('Logout');
 });
@@ -68,20 +83,10 @@ Route::post('/ShowBook/{ISBN}/{page}/decrement', [BookController::class, 'decrem
 
 Route::get('/DetailBook/{ISBN}', [BookController::class, 'detailIndex'])->name('Detail Book');
 
+
 Route::middleware('guest')->group(function () {
     Route::get('/Login', [LoginController::class, 'index'])->name('Login');
     Route::post('/Login/post', [LoginController::class, 'authenticate'])->name('Authenticate');
     Route::get('/Register', [RegisterController::class, 'index'])->name('Register');
     Route::post('/Register/post', [RegisterController::class, 'register'])->name('Register User');
 });
-
-Route::post('/submit-feedback/{ISBN}', [FeedbackController::class, 'store']);
-
-Route::get('/Forum', [ForumController::class, 'index'])->name('Forum');
-Route::get('/Forum/{post_id}', [ForumController::class, 'showPost'])->name('Show Post');
-Route::post('/submit-comment/{post_id}', [CommentController::class, 'createComment']);
-Route::post('/like-post/{post_id}', [PostVoteController::class, 'likePost'])->name('Like Post');
-
-Route::post('/edit-comment/{comment_id}', [CommentController::class, 'editComment']);
-Route::post('/delete-comment/{comment_id}', [CommentController::class, 'deleteComment'])->name('Delete Comment');
-Route::post('/like-comment/{comment_id}', [CommentVoteController::class, 'likeComment'])->name('Like Comment');
